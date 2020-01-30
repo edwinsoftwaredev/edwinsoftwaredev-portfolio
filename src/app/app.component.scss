@@ -5,14 +5,25 @@
     display: flex;
 }
 
+.left-container div {
+    width: 100%;
+    margin: auto 0;
+}
+
 .menu {
-    position: static;
     z-index: 1;
     margin: auto 0 auto 17px;
     border: 3px dashed white;
+    min-width: fit-content;
+    max-width: fit-content;
     opacity: 0;
-    transform: translateX(-20%) skew(8deg);
-    transition: ease-out 300ms;
+    transform: translateX(0vw) skew(8deg);
+    transition: ease-out 250ms;
+    animation: menu-out;
+    animation-delay: 250ms;
+    animation-fill-mode: forwards;
+    float: left;
+    background-color: #1b1b1b;
 }
 
 .menu ul {
@@ -45,36 +56,169 @@
 }
 
 .menu button::before {
-    border-bottom: 2px solid white;
+    border-bottom: 3px solid chartreuse;
 }
 
 .left-container {
     position: absolute;
     display: flex;
     background-color: #1b1b1b;
-    transform: skewX(-8deg);
+    transform: translateX(-40vw) skewX(-8deg);
+    width: 60vw;
     transform-origin: top left;
-    width: 35vw;
-    transition: ease-in 150ms;
+    transition: ease-in 180ms;
+    overflow: hidden;
 }
 
 .principal-container:hover .left-container:not(:hover) {
-    transform: skewX(-8deg);
+    transform: translateX(-40vw) skewX(-8deg);
     transform-origin: top left;
-    width: 35vw;
-    transition: ease-out 150ms;
+    transition: ease-out 220ms;
+    transition-delay: 400ms;
 }
 
 .left-container:hover:not(.menu) {
-    transform: skewX(-8deg);
+    transform: translateX(0vw) skewX(-8deg);
     transform-origin: top left;
-    width: 75vw;
-    transition: ease-in 150ms;
+    transition: ease-in 180ms;
+    transition-delay: 150ms;
 }
 
 .left-container:hover .menu {
     opacity: 1;
-    transform: translateX(30%) skewX(8deg) !important;
-    transition: ease-in 150ms;
-    transition-delay: 240ms;
+    transform: translateX(5vw) skewX(8deg) !important;
+    transition: ease-in 180ms;
+    transition-delay: 300ms;
+    animation: menu-in;
+}
+
+@keyframes menu-in {
+    100% {
+        position: relative;
+    }
+}
+
+@keyframes menu-out {
+    100% {
+        position: relative;
+    }
+}
+
+.option-description {
+    opacity: 0;
+    transform: translateX(7vw) translateY(10%) skewX(8deg);
+    float: left;
+    max-width: fit-content;
+    transition: ease-out 150ms;
+    transition-delay: 100ms;
+}
+
+.left-container:hover .option-description {
+    transform: translateX(7vw) translateY(0%) skewX(8deg);
+    opacity: 1;
+    transition: ease-in 220ms;
+    transition-delay: 600ms;
+}
+
+.option-description p {
+    position: absolute;
+    color: lightgray;
+}
+
+// no definitive
+.option-description h1 {
+    color: white;
+    font-weight: 700;
+    text-align: left;
+}
+
+.square {
+    opacity: 0;
+    transform: rotate(45deg);
+    border: 6px solid chartreuse;
+    margin: auto;
+    position: absolute;
+    top: 20px;
+    bottom: 40px;
+    left: 20px;
+    right: 40px;
+    z-index: -1;
+    transition: ease-in 300ms;
+    transition-delay: 250ms;
+}
+
+.left-container:hover .square {
+    opacity: 1;
+    transition: ease-in 300ms;
+    transition-delay: 200ms;
+}
+
+.square-wait-container {
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    width: 20vw !important;
+    height: 20vh;
+    top: 40vh;
+    pointer-events: none;
+    transition: ease-out 250ms;
+}
+
+.left-container:not(:hover) ~ .square-wait-container {
+    opacity: 1;
+    transition: ease-in 250ms;
+    transition-delay: 850ms;
+}
+
+.square-wait {
+    opacity: 1;
+    margin: auto;
+    display: flex;
+    transform: rotate(45deg);
+    max-width: 50px;
+    max-height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border: 3px solid chartreuse;
+    z-index: 2;
+    pointer-events: none;
+    animation-name: square-blink;
+    animation-duration: 1.5s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-delay: 850ms;
+}
+
+.square-wait-first {
+    opacity: 1;
+    transform: rotate(45deg);
+    max-width: 90px;
+    max-height: 90px;
+    min-width: 90px;
+    min-height: 90px;
+    margin: auto;
+    border: 3px solid chartreuse;
+    z-index: 2;
+    pointer-events: none;
+    animation-name: square-blink;
+    animation-duration: 1.5s;
+    animation-direction: normal;
+    animation-iteration-count: infinite;
+    animation-delay: 1250ms;
+}
+
+@keyframes square-blink {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.square-wait-container span {
+    color: white;
+    margin: auto;
+    opacity: 1 !important;
 }
