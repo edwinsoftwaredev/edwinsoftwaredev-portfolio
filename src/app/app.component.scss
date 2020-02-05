@@ -47,27 +47,30 @@
     font-weight: 999;
 }
 
-.menu ul li button:focus {
-    font-weight: 999;
-}
-
 .menu button {
     color: white;
 }
 
-.menu button::before {
-    border-bottom: 3px solid chartreuse;
+.menu button:focus {
+    font-weight: 999 !important;
+}
+
+/*.menu button::before {
+    border-bottom: 3px solid chartreuse !important;    
+}*/
+
+.menu button:hover::before {
+    border-bottom: 3px solid chartreuse !important;
 }
 
 .left-container {
-    position: absolute;
-    display: flex;
     background-color: #1b1b1b;
     transform: translateX(-40vw) skewX(-8deg);
     width: 60vw;
     transform-origin: top left;
     transition: ease-in 180ms;
     overflow: hidden;
+    display: flex;
 }
 
 .principal-container:hover .left-container:not(:hover) {
@@ -92,6 +95,52 @@
     animation: menu-in;
 }
 
+.route-selected-button {
+    font-weight: 999 !important;
+}
+
+// border bottom when route selected
+.route-selected-button::before {
+    border-bottom: 3px solid chartreuse !important;
+    right: 0 !important;
+}
+
+// when route is in "home" set this classes and replace by importance some attributes of base classes
+////////////////////////////////////////////////////////////////////////////////////
+.left-container-home {
+    transform: translateX(0vw) skewX(-8deg) !important;
+    transform-origin: top left !important;
+    transition: none !important;
+    pointer-events: none !important;
+}
+
+.menu-home {
+    opacity: 1;
+    transform: translateX(5vw) skewX(8deg) !important;
+    animation: menu-in;
+    pointer-events: all !important;
+}
+
+.option-description-home {
+    transform: translateX(7vw) translateY(0%) skewX(8deg) !important;
+    opacity: 1 !important;
+    transition: ease-in 220ms !important;
+    transition-delay: 600ms !important;
+}
+
+.square-home {
+    opacity: 1 !important;
+    transition: ease-in 300ms !important;
+    transition-delay: 200ms !important;
+}
+
+.square-wait-container-home {
+    opacity: 0 !important;
+    transition: none !important;
+}
+
+///////////////////////////////////////////////////////////////////////////////////
+
 @keyframes menu-in {
     100% {
         position: relative;
@@ -111,6 +160,7 @@
     max-width: fit-content;
     transition: ease-out 150ms;
     transition-delay: 100ms;
+    pointer-events: all;
 }
 
 .left-container:hover .option-description {
@@ -161,7 +211,7 @@
     height: 20vh;
     top: 40vh;
     pointer-events: none;
-    transition: ease-out 250ms;
+    transition: ease-out 200ms;
 }
 
 .left-container:not(:hover) ~ .square-wait-container {
@@ -170,18 +220,9 @@
     transition-delay: 850ms;
 }
 
-.square-wait {
-    opacity: 1;
-    margin: auto;
-    display: flex;
-    transform: rotate(45deg);
-    max-width: 50px;
-    max-height: 50px;
-    min-width: 50px;
-    min-height: 50px;
-    border: 3px solid chartreuse;
-    z-index: 2;
-    pointer-events: none;
+.left-container:not(:hover) ~ .square-wait-container .square-wait {
+    transform: scale(1) rotate(405deg);
+    transition: ease-in 300ms;
     animation-name: square-blink;
     animation-duration: 1.5s;
     animation-direction: normal;
@@ -189,22 +230,43 @@
     animation-delay: 850ms;
 }
 
-.square-wait-first {
-    opacity: 1;
-    transform: rotate(45deg);
-    max-width: 90px;
-    max-height: 90px;
-    min-width: 90px;
-    min-height: 90px;
-    margin: auto;
-    border: 3px solid chartreuse;
-    z-index: 2;
-    pointer-events: none;
+.left-container:not(:hover) ~ .square-wait-container .square-wait-first {
+    transform: scale(1) rotate(225deg);
+    transition: ease-in 600ms;
     animation-name: square-blink;
     animation-duration: 1.5s;
     animation-direction: normal;
     animation-iteration-count: infinite;
     animation-delay: 1250ms;
+}
+
+.square-wait {
+    opacity: 1;
+    margin: auto;
+    display: flex;
+    transform: scale(0.5) rotate(45deg);
+    max-width: 50px;
+    max-height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border: 3px solid chartreuse;
+    z-index: 2;
+    pointer-events: none;
+    transition: ease-in 300ms;
+}
+
+.square-wait-first {
+    opacity: 1;
+    transform: scale(0.5) rotate(45deg);
+    max-width: 90px;
+    max-height: 90px;
+    width: 90px;
+    height: 90px;
+    margin: auto;
+    border: 3px solid chartreuse;
+    z-index: 2;
+    pointer-events: none;
+    transition: ease-in 300ms;
 }
 
 @keyframes square-blink {
@@ -221,4 +283,37 @@
     color: white;
     margin: auto;
     opacity: 1 !important;
+}
+
+
+// Right container
+
+.right-container {
+    position: fixed;
+    width: 80vw;
+    transform: translateX(60vw) skewX(-8deg);
+    transform-origin: top left;
+    transition: ease-in 180ms;
+    transition-delay: 150ms;
+    overflow-x: hidden;
+    padding: 15px;
+}
+
+.right-container div {
+    transform: skewX(8deg) !important;
+    transition: none !important;
+}
+
+.right-container-home {
+    transform: translateX(60vw) skewX(-8deg) !important;
+    transform-origin: top left;
+    transition: none;
+}
+
+// ~ is for siblings
+
+.left-container:not(:hover) ~ .right-container {
+    transform: translateX(20vw) skewX(-8deg);
+    transition: ease-out 220ms;
+    transition-delay: 400ms;
 }

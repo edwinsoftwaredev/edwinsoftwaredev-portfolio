@@ -32,7 +32,10 @@
             ],
             "scripts": [
               "node_modules/uikit/dist/js/uikit.min.js",
-              "node_modules/uikit/dist/js/uikit-icons.min.js"
+              "node_modules/uikit/dist/js/uikit-icons.min.js",
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
             ]
           },
           "configurations": {
@@ -127,6 +130,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "edwinsoftwaredev-portafolio"
 }
