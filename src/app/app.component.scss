@@ -13,7 +13,6 @@
 .menu {
     z-index: 1;
     margin: auto 0 auto 17px;
-    border: 3px dashed white;
     min-width: fit-content;
     max-width: fit-content;
     opacity: 0;
@@ -23,7 +22,7 @@
     animation-delay: 250ms;
     animation-fill-mode: forwards;
     float: left;
-    background-color: #1b1b1b;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
 .menu ul {
@@ -34,7 +33,7 @@
     vertical-align: baseline;
     line-height: 30pt;
     margin-right: 15px;
-    color: white;
+    color: #81d4fa;
 }
 
 .menu ul li button {
@@ -55,12 +54,12 @@
     font-weight: 999 !important;
 }
 
-/*.menu button::before {
-    border-bottom: 3px solid chartreuse !important;    
-}*/
+.menu button::before {
+    border-bottom: 3px solid #81d4fa !important;    
+}
 
 .menu button:hover::before {
-    border-bottom: 3px solid chartreuse !important;
+    border-bottom: 3px solid #81d4fa !important;
 }
 
 .left-container {
@@ -101,7 +100,7 @@
 
 // border bottom when route selected
 .route-selected-button::before {
-    border-bottom: 3px solid chartreuse !important;
+    border-bottom: 3px solid #81d4fa !important;
     right: 0 !important;
 }
 
@@ -129,7 +128,7 @@
 }
 
 .square-home {
-    opacity: 1 !important;
+    opacity: 0.85 !important;
     transition: ease-in 300ms !important;
     transition-delay: 200ms !important;
 }
@@ -182,23 +181,51 @@
     text-align: left;
 }
 
-.square {
-    opacity: 0;
-    transform: rotate(45deg);
-    border: 6px solid chartreuse;
-    margin: auto;
-    position: absolute;
-    top: 20px;
-    bottom: 40px;
-    left: 20px;
-    right: 40px;
+.square-container {
+    transform: skewX(8deg);
+    position: fixed;
     z-index: -1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.square {
+    transform: rotate(45deg);
+    margin: auto !important;
+    border: 5px solid hsl(199, 40%, 20%);
+    outline: 5px solid hsl(199, 42%, 24%);
+    box-shadow:
+        inset 0 0 2px 80px hsl(199, 42%, 24%),
+        0 0 2px 10px hsl(199, 52%, 34%),
+        0 0 2px 15px hsl(199, 62%, 44%),
+        0 0 2px 27px hsl(199, 72%, 54%),
+        0 0 2px 45px hsl(199, 82%, 64%);
+    max-width: 350px;
+    min-width: 100px;
+    height: 350px !important;
+    width: 350px !important;
+    z-index: -1;
+    opacity: 0;
     transition: ease-in 300ms;
     transition-delay: 250ms;
+    animation: rotate 350s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(45deg);
+    }
+
+    to {
+        transform: rotate(405deg);
+    }
 }
 
 .left-container:hover .square {
-    opacity: 1;
+    opacity: 0.85;
     transition: ease-in 300ms;
     transition-delay: 200ms;
 }
@@ -249,7 +276,7 @@
     max-height: 50px;
     min-width: 50px;
     min-height: 50px;
-    border: 3px solid chartreuse;
+    border: 3px solid hsl(199, 92%, 74%);
     z-index: 2;
     pointer-events: none;
     transition: ease-in 300ms;
@@ -263,7 +290,8 @@
     width: 90px;
     height: 90px;
     margin: auto;
-    border: 3px solid chartreuse;
+    border: 3px solid hsl(199, 92%, 74%);
+    box-shadow: inset 0 0 10px 10px rgba(150, 215, 245, 0.45);
     z-index: 2;
     pointer-events: none;
     transition: ease-in 300ms;
