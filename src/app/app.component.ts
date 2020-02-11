@@ -1,5 +1,5 @@
-import { Router, Event, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { Component, OnInit} from '@angular/core';
+import { Router, Event, NavigationEnd } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,7 @@ import { Component, OnInit} from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'edwinsoftwaredev-portafolio';
   isHome: boolean;
+  isStarting = true;
 
   constructor(private router: Router) {
   }
@@ -30,5 +31,10 @@ export class AppComponent implements OnInit {
     } else {
       this.isHome = false;
     }
+
+    // check if there is a lifecycle hook for this
+    setTimeout(() => {
+      this.isStarting = false;
+    }, 1200);
   }
 }

@@ -18,7 +18,7 @@
     opacity: 0;
     transform: translateX(0vw) skew(8deg);
     transition: ease-out 250ms;
-    animation: menu-out;
+    // animation: menu-out;
     animation-delay: 250ms;
     animation-fill-mode: forwards;
     float: left;
@@ -66,7 +66,7 @@
     background-color: #1b1b1b;
     transform: translateX(-40vw) skewX(-8deg);
     width: 60vw;
-    transform-origin: top left;
+    transform-origin: top right !important;
     transition: ease-in 180ms;
     overflow: hidden;
     display: flex;
@@ -74,14 +74,12 @@
 
 .principal-container:hover .left-container:not(:hover) {
     transform: translateX(-40vw) skewX(-8deg);
-    transform-origin: top left;
     transition: ease-out 220ms;
     transition-delay: 400ms;
 }
 
 .left-container:hover:not(.menu) {
     transform: translateX(0vw) skewX(-8deg);
-    transform-origin: top left;
     transition: ease-in 180ms;
     transition-delay: 150ms;
 }
@@ -91,7 +89,6 @@
     transform: translateX(5vw) skewX(8deg) !important;
     transition: ease-in 180ms;
     transition-delay: 300ms;
-    animation: menu-in;
 }
 
 .route-selected-button {
@@ -106,36 +103,116 @@
 
 // when route is in "home" set this classes and replace by importance some attributes of base classes
 ////////////////////////////////////////////////////////////////////////////////////
+.animation-stop {
+    animation: none !important;
+
+    // as the parent class is added after some time we need to set this after the initial animation 
+    .menu-home {
+        opacity: 1;
+        pointer-events: all !important;
+    }
+
+    .option-description-home {
+        opacity: 1;
+        transform: translateX(7vw) translateY(0%) skewX(8deg) !important;
+        pointer-events: all !important;
+    }
+
+    .square-home {
+        opacity: 0.85;
+    }
+
+    // check nesting scss
+    //https://css-tricks.com/the-sass-ampersand/
+
+    &.principal-container {
+        background-color: #dadada !important;
+    }
+
+    &.principal-container-home {
+        background-color: #dadada !important;
+    }
+}
+
+@keyframes init-background-color {
+    from { 
+        background-color: #1b1b1b;
+    }
+
+    to {
+        background-color: #dadada;
+    }
+}
+
 .left-container-home {
     transform: translateX(0vw) skewX(-8deg) !important;
-    transform-origin: top left !important;
+    transition: none !important;
+    pointer-events: none !important;
+    animation: init-ani-left-container 400ms cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+}
+
+@keyframes init-ani-left-container {
+    0% {
+        transform: translateX(-40vw) skewX(-8deg);
+    }
+
+    100% {
+        transform: translateX(0vw) skewX(-8deg);
+    }
+}
+
+.menu-home {
+    transform: translateX(5vw) skewX(8deg) !important;
+    animation: init-menu-home 180ms ease-in forwards;
+    animation-delay: 500ms !important;
+    pointer-events: none !important;
+}
+
+@keyframes init-menu-home {
+    from {
+        opacity: 0;
+        transform: translateX(0vw) skew(8deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(5vw) skewX(8deg);
+        position: relative;
+    }
+}
+
+.option-description-home {
+    animation: init-option-description-home 200ms ease-in forwards;
+    animation-delay: 800ms;
     transition: none !important;
     pointer-events: none !important;
 }
 
-.menu-home {
-    opacity: 1;
-    transform: translateX(5vw) skewX(8deg) !important;
-    animation: menu-in;
-    pointer-events: all !important;
-}
+@keyframes init-option-description-home {
+    from {
+        opacity: 0;
+        transform: translateX(7vw) translateY(10%) skewX(8deg);
+    }
 
-.option-description-home {
-    transform: translateX(7vw) translateY(0%) skewX(8deg) !important;
-    opacity: 1 !important;
-    transition: ease-in 220ms !important;
-    transition-delay: 600ms !important;
+    to {
+        opacity: 1;
+        transform: translateX(7vw) translateY(0%) skewX(8deg);
+    }
 }
 
 .square-home {
-    opacity: 0.85 !important;
-    transition: ease-in 300ms !important;
-    transition-delay: 200ms !important;
+    transition-duration: 500ms !important;
 }
 
 .square-wait-container-home {
     opacity: 0 !important;
     transition: none !important;
+}
+
+.principal-container-home {
+    background-color: #1b1b1b;
+    animation: init-background-color 950ms ease-in forwards;
+    animation-delay: 100ms;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -191,43 +268,121 @@
 }
 
 .square {
-    transform: rotate(45deg);
+    transform: translateX(1vw) rotate(45deg);
     margin: auto !important;
-    border: 5px solid hsl(199, 40%, 20%);
-    outline: 5px solid hsl(199, 42%, 24%);
     box-shadow:
-        inset 0 0 2px 80px hsl(199, 42%, 24%),
-        0 0 2px 10px hsl(199, 52%, 34%),
-        0 0 2px 15px hsl(199, 62%, 44%),
-        0 0 2px 27px hsl(199, 72%, 54%),
-        0 0 2px 45px hsl(199, 82%, 64%);
-    max-width: 350px;
-    min-width: 100px;
-    height: 350px !important;
-    width: 350px !important;
+    inset 0 0 2px 6vw hsl(199, 42%, 14%),
+    0 0 2px 1vw hsl(199, 52%, 24%),
+    0 0 2px 2vw hsl(199, 62%, 34%),
+    0 0 2px 3vw hsl(199, 72%, 44%),
+    0 0 2px 5vw hsl(199, 82%, 54%);
+    height: 25vw !important; // See this. Both properties use the same measure regardless of whether one is tall and the other wide.
+    width: 25vw !important;
     z-index: -1;
     opacity: 0;
     transition: ease-in 300ms;
     transition-delay: 250ms;
-    animation: rotate 350s;
-    animation-fill-mode: forwards;
+    animation: leveling 3s linear, rotate-square 350s;
     animation-iteration-count: infinite;
 }
 
-@keyframes rotate {
+@keyframes rotate-square {
     from {
-        transform: rotate(45deg);
+        transform: translateX(1vw) rotate(45deg);
     }
 
     to {
-        transform: rotate(405deg);
+        transform: translateX(1vw) rotate(405deg);
+    }
+}
+
+@keyframes leveling {
+    0% {
+        box-shadow:
+        inset 0 0 2px 6vw hsl(199, 42%, 14%),
+        0 0 2px 1vw hsl(199, 52%, 24%),
+        0 0 2px 2vw hsl(199, 62%, 34%),
+        0 0 2px 3vw hsl(199, 72%, 44%),
+        0 0 2px 5vw hsl(199, 82%, 55%);
+    }
+
+    13% {
+        box-shadow:
+        inset 0 0 2px 6vw hsl(199, 42%, 14%),
+        0 0 2px 1vw hsl(199, 52%, 25%),
+        0 0 2px 2vw hsl(199, 62%, 34%),
+        0 0 2px 3vw hsl(199, 72%, 44%),
+        0 0 2px 5vw hsl(199, 82%, 54%);
+    }
+
+    25% {
+        box-shadow:
+        inset 0 0 2px 6vw hsl(199, 42%, 14%),
+        0 0 2px 1vw hsl(199, 52%, 26%),
+        0 0 2px 2vw hsl(199, 62%, 34%),
+        0 0 2px 3vw hsl(199, 72%, 44%),
+        0 0 2px 5vw hsl(199, 82%, 54%);
+    }
+
+    38% {
+        box-shadow:
+        inset 0 0 2px 6vw hsl(199, 42%, 14%),
+        0 0 2px 1vw hsl(199, 52%, 25%),
+        0 0 2px 2vw hsl(199, 62%, 35%),
+        0 0 2px 3vw hsl(199, 72%, 44%),
+        0 0 2px 5vw hsl(199, 82%, 54%);
+    }
+
+    50% {
+        box-shadow:
+        inset 0 0 2px 6vw hsl(199, 42%, 14%),
+        0 0 2px 1vw hsl(199, 52%, 24%),
+        0 0 2px 2vw hsl(199, 62%, 36%),
+        0 0 2px 3vw hsl(199, 72%, 44%),
+        0 0 2px 5vw hsl(199, 82%, 54%);
+    }
+
+    63% {
+        box-shadow:
+        inset 0 0 2px 6vw hsl(199, 42%, 14%),
+        0 0 2px 1vw hsl(199, 52%, 24%),
+        0 0 2px 2vw hsl(199, 62%, 35%),
+        0 0 2px 3vw hsl(199, 72%, 45%),
+        0 0 2px 5vw hsl(199, 82%, 54%);
+    }
+
+    75% {
+        box-shadow:
+        inset 0 0 2px 6vw hsl(199, 42%, 14%),
+        0 0 2px 1vw hsl(199, 52%, 24%),
+        0 0 2px 2vw hsl(199, 62%, 34%),
+        0 0 2px 3vw hsl(199, 72%, 46%),
+        0 0 2px 5vw hsl(199, 82%, 54%);
+    }
+
+    88% {
+        box-shadow:
+        inset 0 0 2px 6vw hsl(199, 42%, 14%),
+        0 0 2px 1vw hsl(199, 52%, 24%),
+        0 0 2px 2vw hsl(199, 62%, 34%),
+        0 0 2px 3vw hsl(199, 72%, 45%),
+        0 0 2px 5vw hsl(199, 82%, 55%);
+    }
+
+    100% {
+        box-shadow:
+        inset 0 0 2px 6vw hsl(199, 42%, 14%),
+        0 0 2px 1vw hsl(199, 52%, 24%),
+        0 0 2px 2vw hsl(199, 62%, 34%),
+        0 0 2px 3vw hsl(199, 72%, 44%),
+        0 0 2px 5vw hsl(199, 82%, 56%);
     }
 }
 
 .left-container:hover .square {
     opacity: 0.85;
     transition: ease-in 300ms;
-    transition-delay: 200ms;
+    transition-delay: 350ms;
 }
 
 .square-wait-container {
@@ -313,28 +468,27 @@
     opacity: 1 !important;
 }
 
-
 // Right container
-
 .right-container {
     position: fixed;
     width: 80vw;
+    height: 100%;
     transform: translateX(60vw) skewX(-8deg);
     transform-origin: top left;
     transition: ease-in 180ms;
     transition-delay: 150ms;
     overflow-x: hidden;
-    padding: 15px;
 }
 
 .right-container div {
-    transform: skewX(8deg) !important;
+    transform: skewX(8deg);
     transition: none !important;
+    height: 100%;
+    width: 100%;
 }
 
 .right-container-home {
     transform: translateX(60vw) skewX(-8deg) !important;
-    transform-origin: top left;
     transition: none;
 }
 

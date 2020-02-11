@@ -1,0 +1,31 @@
+.principal-container {
+    display: flex;
+    height: 100%;
+    width: 40vw;
+    position: absolute;
+}
+
+.principal-container div {
+    margin: auto !important;
+}
+
+.profile-pic-container {
+    opacity: 0;
+    animation: init-pro-pic 550ms ease-in forwards;
+    animation-delay: 500ms;
+}
+
+@keyframes init-pro-pic {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.profile-pic-container img {
+    width: 16vw; // check this with the transition. the width is updted so the transition is executed
+    transition: 500ms ease-in;
+}
