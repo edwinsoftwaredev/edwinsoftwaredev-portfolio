@@ -36,8 +36,8 @@
   <!-- route here other components  -->
   <div [ngClass]="{'right-container-home' : isHome}" class="right-container">
     <div [ngClass]="{'animation-stop':!isStarting}">
-      <app-home *ngIf="isHome"></app-home>
-      <router-outlet *ngIf="!isHome"></router-outlet>
+      <app-home class="app-home-component uk-overlay-primary"></app-home>
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

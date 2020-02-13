@@ -2,27 +2,11 @@
     display: flex;
     height: 100%;
     width: 40vw;
-    position: absolute;
+    transform: skew(8deg);
 }
 
 .principal-container div {
     margin: auto !important;
-}
-
-.profile-pic-container {
-    opacity: 0;
-    animation: init-pro-pic 550ms ease-in forwards;
-    animation-delay: 500ms;
-}
-
-@keyframes init-pro-pic {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
 }
 
 .profile-pic-container img {

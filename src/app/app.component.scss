@@ -126,11 +126,8 @@
     //https://css-tricks.com/the-sass-ampersand/
 
     &.principal-container {
-        background-color: #dadada !important;
-    }
-
-    &.principal-container-home {
-        background-color: #dadada !important;
+        transition: 350ms ease-in;
+        background-color: #dadada;
     }
 }
 
@@ -210,9 +207,9 @@
 }
 
 .principal-container-home {
-    background-color: #1b1b1b;
-    animation: init-background-color 950ms ease-in forwards;
-    animation-delay: 100ms;
+    background-color: rgba(34,34,34,.15) !important;
+    // animation: init-background-color 950ms ease-in forwards;
+    // animation-delay: 100ms;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -493,9 +490,57 @@
 }
 
 // ~ is for siblings
-
 .left-container:not(:hover) ~ .right-container {
     transform: translateX(20vw) skewX(-8deg);
     transition: ease-out 220ms;
     transition-delay: 400ms;
+}
+
+.app-home-component {
+    width: 100%;
+    position: absolute;
+    opacity: 0;
+    height: 100%;
+    transform: skewX(-8deg);
+    transition: 300ms ease-in;
+}
+
+// good chunk of scss code
+.left-container {
+    &.left-container-home:not(.animation-stop) ~ .right-container .app-home-component {
+        // transition-delay: 700ms !important;
+        // opacity: 1;
+
+        // the code before doesn't work
+        background-color: rgba(34,34,34,.8) !important;
+        animation: opacity-home-component 500ms ease-in forwards;
+        animation-delay: 600ms;
+    }
+
+    @keyframes opacity-home-component {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    &.left-container-home.animation-stop ~ .right-container .app-home-component {
+        transition: none !important;
+        background-color: rgba(34,34,34,.8) !important;
+        opacity: 1 !important;
+    }
+
+    &.animation-stop:not(.left-container-home):not(:hover) ~ .right-container .app-home-component {
+        transition-duration: 200ms !important;
+        transition-delay: 100ms;
+        opacity: 0;
+    }
+
+    &:not(.left-container-home).animation-stop:hover ~ .right-container .app-home-component {
+        transition-delay: 550ms !important;
+        opacity: 1 !important;
+    }
 }
