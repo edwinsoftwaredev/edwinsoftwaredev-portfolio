@@ -68,6 +68,7 @@
     width: 60vw;
     transform-origin: top right !important;
     transition: ease-in 180ms;
+    transition-delay: 400ms;
     overflow: hidden;
     display: flex;
 }
@@ -477,6 +478,12 @@
     overflow-x: hidden;
 }
 
+.principal-container:not(.principal-container-home):not(:hover) .right-container {
+    transform: translateX(20vw) skewX(-8deg);
+    transition: ease-out 220ms;
+    transition-delay: 400ms;
+}
+
 .right-container div {
     transform: skewX(8deg);
     transition: none !important;
@@ -513,8 +520,8 @@
 
         // the code before doesn't work
         background-color: rgba(34,34,34,.8) !important;
-        animation: opacity-home-component 500ms ease-in forwards;
-        animation-delay: 600ms;
+        animation: opacity-home-component 300ms ease-in forwards;
+        animation-delay: 750ms;
     }
 
     @keyframes opacity-home-component {
