@@ -1,6 +1,6 @@
 <div class="uk-width-1-1 principal-container" [ngClass]="{'animation-stop':!isStarting, 'principal-container-home': isHome}">
   <div id="left-container" [ngClass]="{'animation-stop':!isStarting, 'left-container-home': isHome}" class="uk-width-1-2 uk-height-1-1 left-container">
-    <div>
+    <div class="first-left-container">
       <div [ngClass]="{'animation-stop':!isStarting, 'menu-home':isHome}" class="uk-animation-toggle menu">
         <ul class="uk-list uk-padding">
           <li><span uk-icon="icon: home; ratio: 1.3"></span><button routerLinkActive="route-selected-button" [routerLinkActiveOptions]="{exact: true}" routerLink="/" class="uk-button uk-button-text">Home</button></li>
@@ -11,8 +11,10 @@
         </ul>
       </div>
       <div [ngClass]="{'animation-stop': !isStarting, 'option-description-home' : isHome}" class="option-description">
-        <h1 class="uk-heading-medium">Hi, I'm Edwin</h1>
-        <p class="uk-dropcap" style="word-wrap: break-word;">Add one of the following classes to modify the size and style of headings. Usually, these classes would be used on heading elements but they work also with any other element like a div element.UIkit comes with its own SVG icon system and a comprehensive library, which comprises a growing number of elegant outline icons. This component injects SVGs into the site, so that they adopt color and can be styled with CSS.</p>
+        <div>
+          <h1 class="title">Hi, my name is <br> Edwin Martínez.</h1>
+          <p style="word-wrap: break-word;">I'm a software engineer focused on Front-end, Back-end, Full stack and Mobile app development.</p>
+        </div>
       </div>
     </div>
     <div class="square-container">
@@ -37,7 +39,9 @@
   <div [ngClass]="{'right-container-home' : isHome}" class="right-container">
     <div [ngClass]="{'animation-stop':!isStarting}">
       <app-home class="app-home-component uk-overlay-primary"></app-home>
-      <router-outlet></router-outlet>
+      <div class="background">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>

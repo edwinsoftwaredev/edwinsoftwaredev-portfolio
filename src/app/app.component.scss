@@ -5,9 +5,23 @@
     display: flex;
 }
 
-.left-container div {
+.left-container .first-left-container {
     width: 100%;
-    margin: auto 0;
+    position: absolute;
+    margin: auto !important;
+    display: flex;
+    height: 100%;
+    transform: skewX(8deg);
+}
+
+.title {
+
+    ~ p {
+        margin-left: 3px;
+        margin-top: 15px !important;
+        font-size: 18pt;
+        color: #b6ffff !important;
+    }
 }
 
 .menu {
@@ -16,9 +30,8 @@
     min-width: fit-content;
     max-width: fit-content;
     opacity: 0;
-    transform: translateX(0vw) skew(8deg);
+    transform: translateX(0vw);
     transition: ease-out 250ms;
-    // animation: menu-out;
     animation-delay: 250ms;
     animation-fill-mode: forwards;
     float: left;
@@ -33,7 +46,7 @@
     vertical-align: baseline;
     line-height: 30pt;
     margin-right: 15px;
-    color: #81d4fa;
+    color: #b6ffff;
 }
 
 .menu ul li button {
@@ -87,7 +100,7 @@
 
 .left-container:hover .menu {
     opacity: 1;
-    transform: translateX(5vw) skewX(8deg) !important;
+    transform: translateX(5vw) !important;
     transition: ease-in 180ms;
     transition-delay: 300ms;
 }
@@ -114,8 +127,8 @@
     }
 
     .option-description-home {
+        transform: translateX(7vw) translateY(0%) !important;
         opacity: 1;
-        transform: translateX(7vw) translateY(0%) skewX(8deg) !important;
         pointer-events: all !important;
     }
 
@@ -160,7 +173,7 @@
 }
 
 .menu-home {
-    transform: translateX(5vw) skewX(8deg) !important;
+    transform: translateX(5vw) !important;
     animation: init-menu-home 180ms ease-in forwards;
     animation-delay: 500ms !important;
     pointer-events: none !important;
@@ -169,32 +182,32 @@
 @keyframes init-menu-home {
     from {
         opacity: 0;
-        transform: translateX(0vw) skew(8deg);
+        transform: translateX(0vw);
     }
 
     to {
         opacity: 1;
-        transform: translateX(5vw) skewX(8deg);
+        transform: translateX(5vw);
         position: relative;
     }
 }
 
 .option-description-home {
-    animation: init-option-description-home 200ms ease-in forwards;
-    animation-delay: 800ms;
+    animation: init-desc 200ms ease-in forwards;
+    animation-delay: 800ms !important;
     transition: none !important;
     pointer-events: none !important;
 }
 
-@keyframes init-option-description-home {
+@keyframes init-desc {
     from {
         opacity: 0;
-        transform: translateX(7vw) translateY(10%) skewX(8deg);
+        transform: translateX(7vw) translateY(3%);
     }
 
     to {
         opacity: 1;
-        transform: translateX(7vw) translateY(0%) skewX(8deg);
+        transform: translateX(7vw) translateY(0%);
     }
 }
 
@@ -229,23 +242,24 @@
 
 .option-description {
     opacity: 0;
-    transform: translateX(7vw) translateY(10%) skewX(8deg);
+    transform: translateX(7vw) translateY(3%);
+    margin: auto 0 !important;
+    width: 30vw;
     float: left;
-    max-width: fit-content;
+    pointer-events: all;
     transition: ease-out 150ms;
     transition-delay: 100ms;
-    pointer-events: all;
 }
 
 .left-container:hover .option-description {
-    transform: translateX(7vw) translateY(0%) skewX(8deg);
+    transform: translateX(7vw) translateY(0%);
     opacity: 1;
     transition: ease-in 220ms;
     transition-delay: 600ms;
 }
 
-.option-description p {
-    position: absolute;
+.option-description p { 
+    margin: 0 !important;
     color: lightgray;
 }
 
@@ -273,7 +287,7 @@
     0 0 2px 1vw hsl(199, 52%, 24%),
     0 0 2px 2vw hsl(199, 62%, 34%),
     0 0 2px 3vw hsl(199, 72%, 44%),
-    0 0 2px 5vw hsl(199, 82%, 54%);
+    0 0 2px 5vw rgb(42, 173, 234);
     height: 25vw !important; // See this. Both properties use the same measure regardless of whether one is tall and the other wide.
     width: 25vw !important;
     z-index: -1;
@@ -471,45 +485,45 @@
     position: fixed;
     width: 80vw;
     height: 100%;
-    transform: translateX(60vw) skewX(-8deg);
+    transform: translateX(60vw);
     transform-origin: top left;
     transition: ease-in 180ms;
     transition-delay: 150ms;
-    overflow-x: hidden;
 }
 
 .principal-container:not(.principal-container-home):not(:hover) .right-container {
-    transform: translateX(20vw) skewX(-8deg);
+    transform: translateX(20vw);
     transition: ease-out 220ms;
     transition-delay: 400ms;
 }
 
 .right-container div {
-    transform: skewX(8deg);
     transition: none !important;
     height: 100%;
-    width: 100%;
 }
 
 .right-container-home {
-    transform: translateX(60vw) skewX(-8deg) !important;
+    transform: translateX(60vw) !important;
     transition: none;
 }
 
 // ~ is for siblings
 .left-container:not(:hover) ~ .right-container {
-    transform: translateX(20vw) skewX(-8deg);
+    transform: translateX(20vw);
     transition: ease-out 220ms;
     transition-delay: 400ms;
 }
 
 .app-home-component {
+    transform: skewX(-8deg) !important;
+    transform-origin: top left;
     width: 100%;
     position: absolute;
     opacity: 0;
     height: 100%;
-    transform: skewX(-8deg);
     transition: 300ms ease-in;
+    z-index: 2 !important;
+    box-shadow: 0 0 1px 0px #1b1b1b inset, 0 0 1px 0px rgba(34,34,34,.8);
 }
 
 // good chunk of scss code
@@ -520,8 +534,8 @@
 
         // the code before doesn't work
         background-color: rgba(34,34,34,.8) !important;
-        animation: opacity-home-component 300ms ease-in forwards;
-        animation-delay: 750ms;
+        animation: opacity-home-component 400ms ease-in forwards;
+        animation-delay: 350ms;
     }
 
     @keyframes opacity-home-component {
@@ -549,5 +563,14 @@
     &:not(.left-container-home).animation-stop:hover ~ .right-container .app-home-component {
         transition-delay: 550ms !important;
         opacity: 1 !important;
+
+        ~ .background {
+            filter: blur(1px);
+            transition: 100ms ease-in !important;
+        }
     }
+}
+
+.background {
+    padding: 10px;
 }
