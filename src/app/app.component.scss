@@ -193,8 +193,8 @@
 }
 
 .option-description-home {
-    animation: init-desc 200ms ease-in forwards;
-    animation-delay: 800ms !important;
+    animation: init-desc 300ms ease-in forwards;
+    animation-delay: 500ms !important;
     transition: none !important;
     pointer-events: none !important;
 }
@@ -254,8 +254,8 @@
 .left-container:hover .option-description {
     transform: translateX(7vw) translateY(0%);
     opacity: 1;
-    transition: ease-in 220ms;
-    transition-delay: 600ms;
+    transition: ease-in 300ms;
+    transition-delay: 500ms;
 }
 
 .option-description p { 
@@ -287,7 +287,7 @@
     0 0 2px 1vw hsl(199, 52%, 24%),
     0 0 2px 2vw hsl(199, 62%, 34%),
     0 0 2px 3vw hsl(199, 72%, 44%),
-    0 0 2px 5vw rgb(42, 173, 234);
+    0 0 2px 5vw #2aadea;
     height: 25vw !important; // See this. Both properties use the same measure regardless of whether one is tall and the other wide.
     width: 25vw !important;
     z-index: -1;
@@ -535,7 +535,7 @@
         // the code before doesn't work
         background-color: rgba(34,34,34,.8) !important;
         animation: opacity-home-component 400ms ease-in forwards;
-        animation-delay: 350ms;
+        animation-delay: 450ms;
     }
 
     @keyframes opacity-home-component {
@@ -550,7 +550,7 @@
 
     &.left-container-home.animation-stop ~ .right-container .app-home-component {
         transition: none !important;
-        background-color: rgba(34,34,34,.8) !important;
+        background-color: #222222cc !important;
         opacity: 1 !important;
     }
 
