@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   title = 'edwinsoftwaredev-portafolio';
   isHome: boolean;
   isStarting = true;
+  isMenuShown = true;
 
   constructor(private router: Router) {
   }
@@ -20,21 +21,33 @@ export class AppComponent implements OnInit {
         if (event.urlAfterRedirects.trim() === '/') {
           // focus home button
           this.isHome = true;
+          this.isMenuShown = true;
         } else {
           this.isHome = false;
+          this.isMenuShown = false;
         }
       }
     });
 
     if (!this.router.routerState.snapshot.url) {
       this.isHome = true;
+      this.isMenuShown = true;
     } else {
       this.isHome = false;
+      this.isMenuShown = false;
     }
 
     // check if there is a lifecycle hook for this
     setTimeout(() => {
       this.isStarting = false;
     }, 1200);
+  }
+
+  showMenu() {
+    this.isMenuShown = true;
+  }
+
+  hideMenu() {
+    this.isMenuShown = false;
   }
 }

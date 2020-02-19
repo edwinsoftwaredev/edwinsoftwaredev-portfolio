@@ -1,13 +1,13 @@
 <div class="uk-width-1-1 principal-container" [ngClass]="{'animation-stop':!isStarting, 'principal-container-home': isHome}">
-  <div id="left-container" [ngClass]="{'animation-stop':!isStarting, 'left-container-home': isHome}" class="uk-width-1-2 uk-height-1-1 left-container">
+  <div id="left-container" [ngClass]="{'animation-stop':!isStarting, 'left-container-home': isHome, 'menu-shown': isMenuShown}" class="uk-width-1-2 uk-height-1-1 left-container">
     <div class="first-left-container">
       <div [ngClass]="{'animation-stop':!isStarting, 'menu-home':isHome}" class="uk-animation-toggle menu">
         <ul class="uk-list uk-padding">
-          <li><span uk-icon="icon: home; ratio: 1.3"></span><button routerLinkActive="route-selected-button" [routerLinkActiveOptions]="{exact: true}" routerLink="/" class="uk-button uk-button-text">Home</button></li>
-          <li><span uk-icon="icon: info; ratio: 1.3"></span><button routerLinkActive="route-selected-button" [routerLinkActiveOptions]="{exact: true}" routerLink="/about" class="uk-button uk-button-text">About</button></li>
-          <li><span uk-icon="icon: album; ratio: 1.3"></span><button routerLinkActive="route-selected-button" [routerLinkActiveOptions]="{exact: true}" routerLink="/projects" class="uk-button uk-button-text">Projects</button></li>
-          <li><span uk-icon="icon: cog; ratio: 1.3"></span><button routerLinkActive="route-selected-button" [routerLinkActiveOptions]="{exact: true}" routerLink="/skills" class="uk-button uk-button-text">Skills</button></li>
-          <li><span uk-icon="icon: mail; ratio: 1.3"></span><button routerLinkActive="route-selected-button" [routerLinkActiveOptions]="{exact: true}" routerLink="/contact" class="uk-button uk-button-text">Contact</button></li>
+          <li><span uk-icon="icon: home; ratio: 1.3"></span><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/" class="uk-button uk-button-text" (click)="hideMenu()">Home</button></li>
+          <li><span uk-icon="icon: info; ratio: 1.3"></span><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/about" class="uk-button uk-button-text" (click)="hideMenu()">About</button></li>
+          <li><span uk-icon="icon: album; ratio: 1.3"></span><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/projects" class="uk-button uk-button-text" (click)="hideMenu()">Projects</button></li>
+          <li><span uk-icon="icon: cog; ratio: 1.3"></span><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/skills" class="uk-button uk-button-text" (click)="hideMenu()">Skills</button></li>
+          <li><span uk-icon="icon: mail; ratio: 1.3"></span><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/contact" class="uk-button uk-button-text" (click)="hideMenu()">Contact</button></li>
         </ul>
       </div>
       <div [ngClass]="{'animation-stop': !isStarting, 'option-description-home' : isHome}" class="option-description">
@@ -23,7 +23,7 @@
       </div>
     </div>
   </div>
-  <div [ngClass]="{'square-wait-container-home' : isHome}" class="square-wait-container">
+  <div [ngClass]="{'square-wait-container-home' : isHome}" class="square-wait-container" (click)="showMenu()">
     <div class="square-wait">
     </div>
   </div>

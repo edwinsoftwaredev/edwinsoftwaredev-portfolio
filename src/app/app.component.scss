@@ -86,19 +86,19 @@
     display: flex;
 }
 
-.principal-container:hover .left-container:not(:hover) {
+.principal-container:hover .left-container:not(.menu-shown) {
     transform: translateX(-40vw) skewX(-8deg);
     transition: ease-out 220ms;
     transition-delay: 400ms;
 }
 
-.left-container:hover:not(.menu) {
+.left-container.menu-shown:not(.menu) {
     transform: translateX(0vw) skewX(-8deg);
     transition: ease-in 180ms;
     transition-delay: 150ms;
 }
 
-.left-container:hover .menu {
+.left-container.animation-stop.menu-shown .menu {
     opacity: 1;
     transform: translateX(5vw) !important;
     transition: ease-in 180ms;
@@ -251,7 +251,7 @@
     transition-delay: 100ms;
 }
 
-.left-container:hover .option-description {
+.left-container.animation-stop.menu-shown .option-description {
     transform: translateX(7vw) translateY(0%);
     opacity: 1;
     transition: ease-in 300ms;
@@ -391,7 +391,7 @@
     }
 }
 
-.left-container:hover .square {
+.left-container.animation-stop.menu-shown .square {
     opacity: 0.85;
     transition: ease-in 300ms;
     transition-delay: 350ms;
@@ -404,17 +404,17 @@
     width: 20vw !important;
     height: 20vh;
     top: 40vh;
-    pointer-events: none;
+    // pointer-events: none;
     transition: ease-out 200ms;
 }
 
-.left-container:not(:hover) ~ .square-wait-container {
+.left-container:not(.menu-shown) ~ .square-wait-container {
     opacity: 1;
     transition: ease-in 250ms;
     transition-delay: 850ms;
 }
 
-.left-container:not(:hover) ~ .square-wait-container .square-wait {
+.left-container:not(.menu-shown) ~ .square-wait-container .square-wait {
     transform: scale(1) rotate(405deg);
     transition: ease-in 300ms;
     animation-name: square-blink;
@@ -424,7 +424,7 @@
     animation-delay: 850ms;
 }
 
-.left-container:not(:hover) ~ .square-wait-container .square-wait-first {
+.left-container:not(.menu-shown) ~ .square-wait-container .square-wait-first {
     transform: scale(1) rotate(225deg);
     transition: ease-in 600ms;
     animation-name: square-blink;
@@ -445,7 +445,8 @@
     min-height: 50px;
     border: 3px solid hsl(199, 92%, 74%);
     z-index: 2;
-    pointer-events: none;
+    cursor: pointer;
+    // pointer-events: none;
     transition: ease-in 300ms;
 }
 
@@ -459,8 +460,8 @@
     margin: auto;
     border: 3px solid hsl(199, 92%, 74%);
     box-shadow: inset 0 0 10px 10px rgba(150, 215, 245, 0.45);
-    z-index: 2;
-    pointer-events: none;
+    z-index: 1;
+    // pointer-events: none;
     transition: ease-in 300ms;
 }
 
@@ -491,7 +492,7 @@
     transition-delay: 150ms;
 }
 
-.principal-container:not(.principal-container-home):not(:hover) .right-container {
+.principal-container:not(.principal-container-home) .left-container:not(.left-container-home):not(.menu-shown) .right-container {
     transform: translateX(20vw);
     transition: ease-out 220ms;
     transition-delay: 400ms;
@@ -508,7 +509,7 @@
 }
 
 // ~ is for siblings
-.left-container:not(:hover) ~ .right-container {
+.left-container:not(.menu-shown) ~ .right-container {
     transform: translateX(20vw);
     transition: ease-out 220ms;
     transition-delay: 400ms;
@@ -528,7 +529,7 @@
 
 // good chunk of scss code
 .left-container {
-    &.left-container-home:not(.animation-stop) ~ .right-container .app-home-component {
+    &.left-container-home.menu-shown:not(.animation-stop) ~ .right-container .app-home-component {
         // transition-delay: 700ms !important;
         // opacity: 1;
 
@@ -548,19 +549,19 @@
         }
     }
 
-    &.left-container-home.animation-stop ~ .right-container .app-home-component {
+    &.left-container-home.menu-shown.animation-stop ~ .right-container .app-home-component {
         transition: none !important;
         background-color: #222222cc !important;
         opacity: 1 !important;
     }
 
-    &.animation-stop:not(.left-container-home):not(:hover) ~ .right-container .app-home-component {
+    &.animation-stop:not(.left-container-home):not(.menu-shown) ~ .right-container .app-home-component {
         transition-duration: 200ms !important;
         transition-delay: 100ms;
         opacity: 0;
     }
 
-    &:not(.left-container-home).animation-stop:hover ~ .right-container .app-home-component {
+    &:not(.left-container-home).animation-stop.menu-shown ~ .right-container .app-home-component {
         transition-delay: 550ms !important;
         opacity: 1 !important;
 
@@ -573,4 +574,8 @@
 
 .background {
     padding: 10px;
+}
+
+.left-container.menu-shown ~ .square-wait-container {
+    pointer-events: none !important;
 }
