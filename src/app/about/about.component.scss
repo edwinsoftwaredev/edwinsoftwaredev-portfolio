@@ -1,3 +1,31 @@
 .principal-container {
-    
+    display: flex;
+    padding: 0 5vw;
+    padding: 10px;
+}
+
+.card-container {
+    margin: auto;
+    min-width: 20vw;
+    max-width: 50vw;
+    height: fit-content;
+}
+
+.pic-container {
+    float: left;
+    width: fit-content;
+
+    img {
+        max-width: 15vw;
+    }
+}
+
+.uk-card-body {
+    display: flex;
+}
+
+.about-description {
+    margin: auto;
+    padding: 0 20px 0 20px;
+    font-weight: 600;
 }

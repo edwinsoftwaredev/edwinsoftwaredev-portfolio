@@ -94,7 +94,7 @@
 
 .left-container.menu-shown:not(.menu) {
     transform: translateX(0vw) skewX(-8deg);
-    transition: ease-in 180ms;
+    transition: ease 300ms;
     transition-delay: 150ms;
 }
 
@@ -484,11 +484,11 @@
 // Right container
 .right-container {
     position: fixed;
-    width: 80vw;
     height: 100%;
+    width: 80vw;
     transform: translateX(60vw);
     transform-origin: top left;
-    transition: ease-in 180ms;
+    transition: ease 300ms;
     transition-delay: 150ms;
 }
 
@@ -500,7 +500,7 @@
 
 .right-container div {
     transition: none !important;
-    height: 100%;
+    height: 100% !important;
 }
 
 .right-container-home {
@@ -523,7 +523,8 @@
     opacity: 0;
     height: 100%;
     transition: 300ms ease-in;
-    z-index: 2 !important;
+    z-index: 1;
+    pointer-events: none;
     box-shadow: 0 0 1px 0px #1b1b1b inset, 0 0 1px 0px rgba(34,34,34,.8);
 }
 
@@ -537,6 +538,7 @@
         background-color: rgba(34,34,34,.8) !important;
         animation: opacity-home-component 400ms ease-in forwards;
         animation-delay: 450ms;
+        z-index: 2 !important;
     }
 
     @keyframes opacity-home-component {
@@ -553,27 +555,35 @@
         transition: none !important;
         background-color: #222222cc !important;
         opacity: 1 !important;
+        z-index: 2 !important;
     }
 
     &.animation-stop:not(.left-container-home):not(.menu-shown) ~ .right-container .app-home-component {
         transition-duration: 200ms !important;
         transition-delay: 100ms;
         opacity: 0;
+
+        ~ .background {
+            filter: blur(0px) !important;
+            transition: 500ms ease-in !important;
+        }
     }
 
     &:not(.left-container-home).animation-stop.menu-shown ~ .right-container .app-home-component {
         transition-delay: 550ms !important;
         opacity: 1 !important;
+        z-index: 2 !important;
 
         ~ .background {
-            filter: blur(1px);
-            transition: 100ms ease-in !important;
+            filter: blur(10px) !important;
+            transition: 1000ms ease-in !important;
         }
     }
 }
 
 .background {
-    padding: 10px;
+    height: auto !important;
+    overflow-y: auto;
 }
 
 .left-container.menu-shown ~ .square-wait-container {
