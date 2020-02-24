@@ -297,7 +297,7 @@
     opacity: 0;
     transition: ease-in 300ms;
     transition-delay: 250ms;
-    animation: leveling 3s linear, rotate-square 350s;
+    animation: leveling 3s linear, rotate-square 350s linear;
     animation-iteration-count: infinite;
 }
 
