@@ -1,0 +1,36 @@
+.principal-container {
+    display: inline-block;
+    padding: 0 5vw;
+    padding: 10px;
+}
+
+.uk-icon-button {
+    color: inherit !important;
+    
+    &:not(:hover) {
+        background-color: rgb(240, 240, 240);
+    }
+}
+
+.tools {
+    font-family: 'Fira Code';
+
+    span {
+        text-transform: none !important;
+        background-color: rgb(240, 240, 240);
+        color: inherit !important;
+        // box-shadow: 0 0 1px 1px #2aadea;
+    }
+}
+
+.background-card-cover {
+}
+
+.ligthbox-button {
+    color: white !important;
+    transition: 250ms all;
+
+    &:hover {
+        color: inherit !important;
+    }
+}
