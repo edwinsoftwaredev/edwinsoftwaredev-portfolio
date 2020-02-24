@@ -1,14 +1,7 @@
 .principal-container {
-    display: flex;
+    display: inline-block;
     padding: 0 5vw;
     padding: 10px;
-}
-
-.card-container {
-    margin: auto;
-    min-width: 20vw;
-    max-width: 50vw;
-    height: fit-content;
 }
 
 .pic-container {
@@ -20,12 +13,13 @@
     }
 }
 
-.uk-card-body {
-    display: flex;
-}
-
 .about-description {
+    display: flex;
     margin: auto;
     padding: 0 20px 0 20px;
     font-weight: 600;
+}
+
+dl dt {
+    color: #fff;
 }

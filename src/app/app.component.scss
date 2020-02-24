@@ -3,6 +3,7 @@
 .principal-container {
     height: 100vh;
     display: flex;
+    background-color: #dadada;
 }
 
 .left-container .first-left-container {
@@ -15,6 +16,8 @@
 }
 
 .title {
+
+    font-size: 36pt !important;
 
     ~ p {
         margin-left: 3px;
@@ -139,7 +142,7 @@
     // check nesting scss
     //https://css-tricks.com/the-sass-ampersand/
 
-    &.principal-container {
+    &.principal-container.principal-container-home {
         transition: 350ms ease-in;
         background-color: #dadada;
     }
