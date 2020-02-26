@@ -11,23 +11,28 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: 'about',
-    component: AboutComponent
+    component: AboutComponent,
+    data: {animation: 'about'}
   },
   {
     path: 'projects',
-    component: ProjectsComponent
+    component: ProjectsComponent,
+    data: {animation: 'projects'}
   },
   {
     path: 'skills',
-    component: SkillsComponent
+    component: SkillsComponent,
+    data: {animation: 'skills'}
   },
   {
     path: 'contact',
-    component: ContactComponent
+    component: ContactComponent,
+    data: {animation: 'contact'}
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: '',
+    data: {animation: 'home'}
   }
 ];
 

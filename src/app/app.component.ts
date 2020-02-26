@@ -1,10 +1,12 @@
-import { Router, Event, NavigationEnd } from '@angular/router';
+import { routeComponentsAnimation } from './routing-animation';
+import { Router, Event, NavigationEnd, RouterOutlet } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [routeComponentsAnimation]
 })
 export class AppComponent implements OnInit {
   title = 'edwinsoftwaredev-portafolio';
@@ -49,5 +51,9 @@ export class AppComponent implements OnInit {
 
   hideMenu() {
     this.isMenuShown = false;
+  }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 }

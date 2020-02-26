@@ -559,6 +559,11 @@
         background-color: #222222cc !important;
         opacity: 1 !important;
         z-index: 2 !important;
+
+        ~ .background {
+            filter: blur(10px) !important;
+            transition: 1000ms ease-in !important;
+        }
     }
 
     &.animation-stop:not(.left-container-home):not(.menu-shown) ~ .right-container .app-home-component {
