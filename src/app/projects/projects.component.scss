@@ -1,9 +1,3 @@
-.principal-container {
-    display: inline-block;
-    padding: 0 5vw;
-    padding: 10px;
-}
-
 .uk-icon-button {
     color: inherit !important;
     
@@ -26,6 +20,9 @@
 .ligthbox-button {
     color: #2aadea !important;
     transition: 250ms all;
+    position: absolute;
+    z-index: 1;
+    pointer-events: none !important;
 
     &:hover {
         color: hsl(199, 72%, 44%) !important;
@@ -44,8 +41,23 @@
 .background-card-cover {
     opacity: 0.98;
     transition: 250ms all;
+    cursor: pointer;
+    position: relative;
+    height: auto !important;
+    width: 250% !important;
+    top: 0%;
+    left: -35%;
+
+    &.no-left {
+        width: 100% !important;
+        left: 0% !important;
+    }
 
     &:hover {
         opacity: 1;
     }
+}
+
+.uk-label {
+    margin-top: 10px;
 }

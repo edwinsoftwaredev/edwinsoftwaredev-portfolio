@@ -518,6 +518,11 @@
     transition-delay: 400ms;
 }
 
+.left-container:not(.menu-shown):not(.animation-stop) ~ .right-container {
+    transform: translateX(20vw);
+    transition: none !important;
+}
+
 .app-home-component {
     transform: skewX(-8deg) !important;
     transform-origin: top left;

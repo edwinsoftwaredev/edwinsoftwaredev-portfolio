@@ -25,6 +25,8 @@ export class AppComponent implements OnInit {
           this.isHome = true;
           this.isMenuShown = true;
         } else {
+          document.getElementsByClassName('background')[0].scrollTop = 0;
+
           this.isHome = false;
           this.isMenuShown = false;
         }
@@ -54,6 +56,6 @@ export class AppComponent implements OnInit {
   }
 
   prepareRoute(outlet: RouterOutlet) {
-    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
+    return this.isHome || (outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation);
   }
 }
