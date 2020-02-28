@@ -32,7 +32,7 @@
 }
 
 .background-card-cover {
-    filter: brightness(50%);
+    filter: brightness(70%);
     transition: 300ms all;
     cursor: pointer;
     position: relative;
@@ -56,6 +56,8 @@
     background-color: transparent !important;
     border: 1px solid hsl(199, 92%, 74%);
     border-radius: 0 !important;
+    box-shadow: 0 0 17px -10px hsl(199, 92%, 74%),
+        inset 0 0 10px -10px hsl(199, 92%, 74%);
 }
 
 .uk-heading-small  {
@@ -70,24 +72,26 @@
 
 .uk-card {
     border: 1px solid hsl(199, 92%, 74%);
-    box-shadow: 0 0 2px 1px hsl(199, 92%, 74%),
-        inset 0 0 2px 1px hsl(199, 92%, 74%);
+    box-shadow: 0 0 17px -10px hsl(199, 92%, 74%),
+        inset 0 0 17px -10px hsl(199, 92%, 74%);
 
     .uk-card-header {
         border-bottom: 1px solid hsl(199, 92%, 74%);
-        box-shadow: 0 3px 2px -2px hsl(199, 92%, 74%),
-            inset 0 -3px 2px -2px hsl(199, 92%, 74%);
+        box-shadow: 0 7px 17px -10px hsl(199, 92%, 74%),
+            inset 0 -3px 17px -10px hsl(199, 92%, 74%);
+
+        background-color: hsla(199, 92%, 74%, 0.2);
     }
 }
 
 .uk-first-column:not(.uk-width-auto) {
     border-right: 1px solid hsl(199, 92%, 74%);
-    box-shadow: 1px 0 1px -1px #80d3fa;
+    box-shadow: 1px 0 17px -10px #80d3fa;
 }
 
-.uk-card-media-left > div {
+.uk-card-media-right {
     border-right: 1px solid hsl(199, 92%, 74%);
-    box-shadow: 1px 0 1px -1px #80d3fa;
+    box-shadow: -2px 0 17px -10px #80d3fa;
 }
 
 .uk-icon-button {
