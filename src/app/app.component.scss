@@ -1,9 +1,221 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
 
+.lines.vertical-line .line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 10%;
+    background: hsla(199, 92%, 74%, 0.05);
+    overflow: hidden;
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 15vh;
+        width: 100%;
+        top: -50%;
+        left: 0;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, hsla(199, 92%, 74%, 0.308) 95%, hsla(199, 92%, 74%, 0.527) 100%);
+        animation: run 30s 0s infinite;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+    }
+
+    &:nth-child(1) {
+        margin-left: 0%;
+        &::after {
+            animation-delay: 2s;
+        }
+    }
+
+    &:nth-child(2) {
+        margin-left: 10%;
+        &::after {
+            animation-delay: 12s;
+        }
+    }
+
+    &:nth-child(3) {
+        margin-left: 20%;
+        &::after {
+            animation-delay: 18s;
+        }
+    }
+
+    &:nth-child(4) {
+        margin-left: 30%;
+        &::after {
+            animation-delay: 20s;
+        }
+    }
+
+    &:nth-child(5) {
+        margin-left: 40%;
+        &::after {
+            animation-delay: 6s;
+        }
+    }
+
+    &:nth-child(6) {
+        margin-left: 50%;
+        &::after {
+            animation-delay: 11s;
+        }
+    }
+
+    &:nth-child(7) {
+        margin-left: 60%;
+        &::after {
+            animation-delay: 25s;
+        }
+    }
+
+    &:nth-child(8) {
+        margin-left: 70%;
+        &::after {
+            animation-delay: 22s;
+        }
+    }
+
+    &:nth-child(9) {
+        margin-left: 80%;
+        &::after {
+            animation-delay: 19s;
+        }
+    }
+}
+
+.lines {
+    position: fixed;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    margin: auto;
+    width: 100vw;
+}
+
+.lines.horizontal-line .line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: 10%;
+    background: hsla(199, 92%, 74%, 0.05);
+    overflow: hidden;
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 15vh;
+        width: 15vh;
+        left: -50%;
+        top: 0;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, hsla(199, 92%, 74%, 0.308) 95%, hsla(199, 92%, 74%, 0.527) 100%);
+        animation: run-horizontal 50s 0s infinite;
+        animation-fill-mode: forwards;
+        animation-timing-function: linear;
+    }
+
+    &:nth-child(1) {
+        margin-top: 0%;
+        &::after {
+            animation-delay: 2s;
+        }
+    }
+
+    &:nth-child(2) {
+        margin-top: 10%;
+        &::after {
+            animation-delay: 12s;
+        }
+    }
+
+    &:nth-child(3) {
+        margin-top: 20%;
+        &::after {
+            animation-delay: 18s;
+        }
+    }
+
+    &:nth-child(4) {
+        margin-top: 30%;
+        &::after {
+            animation-delay: 20s;
+        }
+    }
+
+    &:nth-child(5) {
+        margin-top: 40%;
+        &::after {
+            animation-delay: 6s;
+        }
+    }
+
+    &:nth-child(6) {
+        margin-top: 50%;
+        &::after {
+            animation-delay: 11s;
+        }
+    }
+
+    &:nth-child(7) {
+        margin-top: 60%;
+        &::after {
+            animation-delay: 25s;
+        }
+    }
+
+    &:nth-child(8) {
+        margin-top: 70%;
+        &::after {
+            animation-delay: 22s;
+        }
+    }
+
+    &:nth-child(9) {
+        margin-top: 80%;
+        &::after {
+            animation-delay: 19s;
+        }
+    }
+}
+
+@keyframes run {
+    from {
+        top: -20%
+    }
+
+    to {
+        top: 110%
+    }
+}
+
+@keyframes run-horizontal {
+    from {
+        left: -20%;
+    }
+
+    to {
+        left: 110%;
+    }
+}
+
 .principal-container {
     height: 100vh;
     display: flex;
-    background-color: #dadada;
+}
+
+@keyframes background-animated {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 100% 50%;
+    }
 }
 
 .left-container .first-left-container {
@@ -79,7 +291,7 @@
 }
 
 .left-container {
-    background-color: #1b1b1b;
+    // background-color: #1b1b1b;
     transform: translateX(-40vw) skewX(-8deg);
     width: 60vw;
     transform-origin: top right !important;
@@ -138,16 +350,6 @@
 
     &.principal-container.principal-container-home {
         transition: 350ms ease-in;
-        background-color: #dadada;
-    }
-}
-
-@keyframes init-background-color {
-    from { 
-        background-color: #1b1b1b;
-    }
-
-    to {
         background-color: #dadada;
     }
 }
@@ -215,12 +417,6 @@
 .square-wait-container-home {
     opacity: 0 !important;
     transition: none !important;
-}
-
-.principal-container-home {
-    background-color: rgba(34,34,34,.15) !important;
-    // animation: init-background-color 950ms ease-in forwards;
-    // animation-delay: 100ms;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -401,6 +597,7 @@
     width: 20vw !important;
     height: 20vh;
     top: 40vh;
+    left: 4vw;
     // pointer-events: none;
     transition: ease-out 200ms;
 }
@@ -559,7 +756,7 @@
         // opacity: 1;
 
         // the code before doesn't work
-        background-color: rgba(34,34,34,.8) !important;
+        // background-color: rgba(34,34,34,.8) !important;
         animation: opacity-home-component 400ms ease-in forwards;
         animation-delay: 450ms;
         z-index: 2 !important;
@@ -577,7 +774,7 @@
 
     &.left-container-home.menu-shown.animation-stop ~ .right-container .app-home-component {
         transition: none !important;
-        background-color: #222222cc !important;
+        // background-color: #222222cc !important;
         opacity: 1 !important;
         z-index: 2 !important;
 

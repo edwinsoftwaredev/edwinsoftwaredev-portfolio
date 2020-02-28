@@ -19,10 +19,15 @@ dl dt {
 }
 
 
-.uk-card-header {
-    // background-color: rgb(58, 58, 58);
-}
+.uk-heading-small  {
+    color: #fff;
+    font-weight: 800;
+    font-family: 'Fira Code';
 
+    &::before {
+        border-color: hsl(199, 92%, 74%);
+    }   
+}
 .uk-card-title {
     color: #fff;
     font-weight: 600;
