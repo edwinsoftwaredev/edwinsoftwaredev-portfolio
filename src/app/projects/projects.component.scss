@@ -1,9 +1,9 @@
 .uk-icon-button {
-    color: inherit !important;
+    // color: inherit !important;
     
-    &:not(:hover) {
+    /*&:not(:hover) {
         background-color: rgb(240, 240, 240);
-    }
+    }*/
 }
 
 .tools {
@@ -11,26 +11,19 @@
 
     span {
         text-transform: none !important;
-        background-color: rgb(240, 240, 240);
-        color: inherit !important;
+        color: hsl(199, 92%, 74%);
+        // background-color: rgb(240, 240, 240);
+        // color: inherit !important;
         // box-shadow: 0 0 1px 1px #2aadea;
     }
 }
 
 .ligthbox-button {
-    color: #2aadea !important;
+    color: hsl(199, 92%, 74%) !important;
     transition: 250ms all;
     position: absolute;
     z-index: 1;
     pointer-events: none !important;
-
-    &:hover {
-        color: hsl(199, 72%, 44%) !important;
-    }
-}
-
-.uk-card-header {
-    background-color: rgb(58, 58, 58);
 }
 
 .uk-card-title {
@@ -39,8 +32,8 @@
 }
 
 .background-card-cover {
-    opacity: 0.98;
-    transition: 250ms all;
+    filter: brightness(50%);
+    transition: 300ms all;
     cursor: pointer;
     position: relative;
     height: auto !important;
@@ -54,10 +47,63 @@
     }
 
     &:hover {
-        opacity: 1;
+        filter: brightness(100%);
     }
 }
 
 .uk-label {
     margin-top: 10px;
+    background-color: transparent !important;
+    border: 1px solid hsl(199, 92%, 74%);
+    border-radius: 0 !important;
+}
+
+.uk-heading-small  {
+    color: rgb(58, 58, 58);
+    font-weight: 800;
+    font-family: 'Fira Code';
+
+    &::before {
+        border-color: hsl(199, 92%, 74%);
+    }   
+}
+
+.uk-card {
+    border: 1px solid hsl(199, 92%, 74%);
+    box-shadow: 0 0 2px 1px hsl(199, 92%, 74%),
+        inset 0 0 2px 1px hsl(199, 92%, 74%);
+
+    .uk-card-header {
+        border-bottom: 1px solid hsl(199, 92%, 74%);
+        box-shadow: 0 3px 2px -2px hsl(199, 92%, 74%),
+            inset 0 -3px 2px -2px hsl(199, 92%, 74%);
+    }
+}
+
+.uk-first-column:not(.uk-width-auto) {
+    border-right: 1px solid hsl(199, 92%, 74%);
+    box-shadow: 1px 0 1px -1px #80d3fa;
+}
+
+.uk-card-media-left > div {
+    border-right: 1px solid hsl(199, 92%, 74%);
+    box-shadow: 1px 0 1px -1px #80d3fa;
+}
+
+.uk-icon-button {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    border: 1px solid hsl(199, 92%, 74%);
+
+    &:hover {
+        border: 1px solid hsl(199, 92%, 84%);
+    }
+}
+
+.uk-icon-button {
+    color:  hsl(199, 92%, 74%) !important;
+
+    &:hover {
+        color:  hsl(199, 92%, 84%) !important;
+    }
 }

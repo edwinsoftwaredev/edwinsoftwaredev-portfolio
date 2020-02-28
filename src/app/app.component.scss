@@ -89,12 +89,6 @@
     display: flex;
 }
 
-.principal-container:hover .left-container:not(.menu-shown) {
-    transform: translateX(-40vw) skewX(-8deg);
-    transition: ease-out 220ms;
-    transition-delay: 400ms;
-}
-
 .left-container.menu-shown:not(.menu) {
     transform: translateX(0vw) skewX(-8deg);
     transition: ease 300ms;
@@ -489,16 +483,7 @@
     position: fixed;
     height: 100%;
     width: 80vw;
-    transform: translateX(60vw);
-    transform-origin: top left;
-    transition: ease 300ms;
-    transition-delay: 150ms;
-}
-
-.principal-container:not(.principal-container-home) .left-container:not(.left-container-home):not(.menu-shown) .right-container {
-    transform: translateX(20vw);
-    transition: ease-out 220ms;
-    transition-delay: 400ms;
+    // transform-origin: top left !important;
 }
 
 .right-container div {
@@ -511,11 +496,42 @@
     transition: none;
 }
 
-// ~ is for siblings
-.left-container:not(.menu-shown) ~ .right-container {
+.right-container:not(.right-container-home).right-animation-off {
     transform: translateX(20vw);
-    transition: ease-out 220ms;
-    transition-delay: 400ms;
+}
+
+.right-container-in {
+    animation: right-container-in-ani 180ms ease-in both;
+    animation-delay: 400ms;
+}
+
+@keyframes right-container-in-ani {
+    from {
+        transform: translateX(60vw);
+    }
+
+    to {
+        transform: translateX(20vw);
+    }
+} 
+
+.right-container-out {
+    animation: right-container-out-ani 300ms ease both;
+    animation-delay: 150ms;
+}
+
+.right-animation-off {
+    animation: none !important;
+}
+
+@keyframes right-container-out-ani {
+    from {
+        transform: translateX(20vw);
+    }
+
+    to {
+        transform: translateX(60vw);
+    }
 }
 
 .left-container:not(.menu-shown):not(.animation-stop) ~ .right-container {

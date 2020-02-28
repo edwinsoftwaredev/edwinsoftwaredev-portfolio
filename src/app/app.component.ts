@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   isHome: boolean;
   isStarting = true;
   isMenuShown = true;
+  animationOff = true;
 
   constructor(private router: Router) {
   }
@@ -49,9 +50,11 @@ export class AppComponent implements OnInit {
 
   showMenu() {
     this.isMenuShown = true;
+    this.animationOff = false;
   }
 
   hideMenu() {
+    this.animationOff = false;
     this.isMenuShown = false;
   }
 

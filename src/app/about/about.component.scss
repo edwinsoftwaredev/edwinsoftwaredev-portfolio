@@ -7,12 +7,12 @@
     }
 }
 
-.about-description {
+/*.about-description {
     display: flex;
     margin: auto;
     padding: 0 20px 0 20px;
     font-weight: 600;
-}
+}*/
 
 dl dt {
     color: #fff;
@@ -20,10 +20,43 @@ dl dt {
 
 
 .uk-card-header {
-    background-color: rgb(58, 58, 58);
+    // background-color: rgb(58, 58, 58);
 }
 
 .uk-card-title {
     color: #fff;
     font-weight: 600;
+}
+
+.uk-card {
+    border: 1px solid hsl(199, 92%, 74%);
+    box-shadow: 0 0 2px 1px hsl(199, 92%, 74%),
+        inset 0 0 2px 1px hsl(199, 92%, 74%);
+
+    .uk-card-header {
+        border-bottom: 1px solid hsl(199, 92%, 74%);
+        box-shadow: 0 3px 2px -2px hsl(199, 92%, 74%),
+            inset 0 -3px 2px -2px hsl(199, 92%, 74%);
+    }
+}
+
+.uk-first-column:not(.uk-width-auto) {
+    border-right: 1px solid hsl(199, 92%, 74%);
+    box-shadow: 1px 0 1px -1px #80d3fa;
+}
+
+.uk-card-media-left > div {
+    border-right: 1px solid hsl(199, 92%, 74%);
+    box-shadow: 1px 0 1px -1px #80d3fa;
+}
+
+.uk-label {
+    background-color: transparent !important;
+    border: 1px solid hsl(199, 92%, 74%);
+    color: hsl(199, 92%, 74%) !important;
+    border-radius: 0 !important;
+}
+
+.tools {
+    font-family: 'Fira Code' !important;
 }

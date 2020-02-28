@@ -1,4 +1,4 @@
-<div class="uk-width-1-1 principal-container" [ngClass]="{'animation-stop':!isStarting, 'principal-container-home': isHome}">
+<div class="uk-width-1-1 principal-container" [ngClass]="{'principal-container-home': isHome}">
   <div id="left-container" [ngClass]="{'animation-stop':!isStarting, 'left-container-home': isHome, 'menu-shown': isMenuShown}" class="uk-width-1-2 uk-height-1-1 left-container">
     <div class="first-left-container">
       <div [ngClass]="{'animation-stop':!isStarting, 'menu-home':isHome}" class="uk-animation-toggle menu">
@@ -36,7 +36,7 @@
   </div>
 
   <!-- route here other components  -->
-  <div [ngClass]="{'right-container-home' : isHome}" class="right-container">
+  <div [ngClass]="{'right-container-home' : isHome, 'right-animation-off': animationOff, 'right-container-in': !isMenuShown, 'right-container-out': isMenuShown}" class="right-container">
     <div [ngClass]="{'animation-stop':!isStarting}">
       <app-home class="app-home-component uk-overlay-primary"></app-home>
       <div [@routeAnimations]="prepareRoute(outlet)" class="background">
