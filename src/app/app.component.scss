@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
 
+.lines {
+    perspective: 100vw;
+}
+
 .lines.vertical-line .line {
     position: absolute;
     width: 1px;
@@ -224,11 +228,11 @@
     margin: auto !important;
     display: flex;
     height: 100%;
-    transform: skewX(8deg);
 }
 
 .title {
 
+    color: hsl(200, 87%, 94%) !important;
     font-size: 36pt !important;
 
     ~ p {
@@ -275,7 +279,11 @@
 }
 
 .menu button {
-    color: white;
+    color: hsl(200, 87%, 94%);
+}
+
+.square-hamburger {
+   color: hsl(200, 87%, 94%) !important;
 }
 
 .menu button:focus {
@@ -291,8 +299,7 @@
 }
 
 .left-container {
-    // background-color: #1b1b1b;
-    transform: translateX(-40vw) skewX(-8deg);
+    transform: translateX(-40vw);
     width: 60vw;
     transform-origin: top right !important;
     transition: ease-in 180ms;
@@ -302,14 +309,13 @@
 }
 
 .left-container.menu-shown:not(.menu) {
-    transform: translateX(0vw) skewX(-8deg);
+    transform: translateX(0vw);
     transition: ease 300ms;
     transition-delay: 150ms;
 }
 
 .left-container.animation-stop.menu-shown .menu {
     opacity: 1;
-    transform: translateX(5vw) !important;
     transition: ease-in 180ms;
     transition-delay: 300ms;
 }
@@ -336,7 +342,7 @@
     }
 
     .option-description-home {
-        transform: translateX(7vw) translateY(0%) !important;
+        transform: translateX(2vw) translateY(0%) !important;
         opacity: 1;
         pointer-events: all !important;
     }
@@ -355,7 +361,7 @@
 }
 
 .left-container-home {
-    transform: translateX(0vw) skewX(-8deg) !important;
+    transform: translateX(0vw) !important;
     transition: none !important;
     pointer-events: none !important;
     animation: init-ani-left-container 400ms cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
@@ -363,16 +369,15 @@
 
 @keyframes init-ani-left-container {
     0% {
-        transform: translateX(-40vw) skewX(-8deg);
+        transform: translateX(-40vw);
     }
 
     100% {
-        transform: translateX(0vw) skewX(-8deg);
+        transform: translateX(0vw);
     }
 }
 
 .menu-home {
-    transform: translateX(5vw) !important;
     animation: init-menu-home 180ms ease-in forwards;
     animation-delay: 500ms !important;
     pointer-events: none !important;
@@ -381,12 +386,12 @@
 @keyframes init-menu-home {
     from {
         opacity: 0;
-        transform: translateX(0vw);
+        transform: translateX(-5vw);
     }
 
     to {
         opacity: 1;
-        transform: translateX(5vw);
+        transform: translateX(0vw);
         position: relative;
     }
 }
@@ -401,12 +406,12 @@
 @keyframes init-desc {
     from {
         opacity: 0;
-        transform: translateX(7vw) translateY(3%);
+        transform: translateX(2vw) translateY(3%);
     }
 
     to {
         opacity: 1;
-        transform: translateX(7vw) translateY(0%);
+        transform: translateX(2vw) translateY(0%);
     }
 }
 
@@ -435,9 +440,9 @@
 
 .option-description {
     opacity: 0;
-    transform: translateX(7vw) translateY(3%);
+    transform: translateX(2vw) translateY(3%);
     margin: auto 0 !important;
-    width: 30vw;
+    width: 28vw;
     float: left;
     pointer-events: all;
     transition: ease-out 150ms;
@@ -445,7 +450,7 @@
 }
 
 .left-container.animation-stop.menu-shown .option-description {
-    transform: translateX(7vw) translateY(0%);
+    transform: translateX(2vw) translateY(0%);
     opacity: 1;
     transition: ease-in 300ms;
     transition-delay: 500ms;
@@ -464,7 +469,6 @@
 }
 
 .square-container {
-    transform: skewX(8deg);
     position: fixed;
     z-index: -1;
     height: 100%;
@@ -737,7 +741,6 @@
 }
 
 .app-home-component {
-    transform: skewX(-8deg) !important;
     transform-origin: top left;
     width: 100%;
     position: absolute;
@@ -752,11 +755,6 @@
 // good chunk of scss code
 .left-container {
     &.left-container-home.menu-shown:not(.animation-stop) ~ .right-container .app-home-component {
-        // transition-delay: 700ms !important;
-        // opacity: 1;
-
-        // the code before doesn't work
-        // background-color: rgba(34,34,34,.8) !important;
         animation: opacity-home-component 400ms ease-in forwards;
         animation-delay: 450ms;
         z-index: 2 !important;

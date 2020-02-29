@@ -2,7 +2,6 @@
     display: flex;
     height: 100%;
     width: 45vw;
-    transform: skewX(8deg);
 }
 
 .picture {
@@ -25,14 +24,13 @@
     display: flex;
     width: 100%;
     margin: auto;
-    transform: translateX(-11%);
+    transform: translateX(-15%);
     pointer-events: none;
 }
 
 .code-container img {
     transition: 500ms ease-in;
     box-shadow: 0 0 3px 2px white;
-    //border: 3px solid rgb(101, 188, 234);
 }
 
 .is-home {

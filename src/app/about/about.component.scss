@@ -7,20 +7,16 @@
     }
 }
 
-/*.about-description {
-    display: flex;
-    margin: auto;
-    padding: 0 20px 0 20px;
-    font-weight: 600;
-}*/
+.info-icon {
+    color: hsl(200, 87%, 94%) !important;
+}
 
 dl dt {
     color: #fff;
 }
 
-
 .uk-heading-small  {
-    color: #fff;
+    color: hsl(200, 87%, 94%) !important;
     font-weight: 800;
     font-family: 'Fira Code';
 
@@ -29,7 +25,7 @@ dl dt {
     }   
 }
 .uk-card-title {
-    color: #fff;
+    color: hsl(200, 87%, 94%) !important;
     font-weight: 600;
 }
 
