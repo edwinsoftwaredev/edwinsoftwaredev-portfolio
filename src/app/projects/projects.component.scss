@@ -1,10 +1,11 @@
 .tools {
-    font-family: 'Fira Code';
+    font-family: 'Oxanium';
+    text-transform: uppercase;
 
     span {
-        text-transform: none !important;
-        // color: hsl(199, 92%, 74%);
-
+        font-size: 8pt !important;
+        padding-top: 2px;
+        transform: translateY(-2px);
         color: black;
     }
 }
@@ -20,6 +21,10 @@
 .uk-card-title {
     color: hsl(200, 87%, 94%) !important;
     font-weight: 600;
+    font-family: 'Oxanium';
+    text-transform: uppercase;
+    letter-spacing: 2pt;
+    font-size: 14pt;
 }
 
 .background-card-cover {
@@ -51,7 +56,9 @@
 .uk-heading-small  {
     color: hsl(200, 87%, 94%) !important;
     font-weight: 800;
-    font-family: 'Fira Code';
+    font-family: 'Oxanium';
+    text-transform: uppercase;
+    letter-spacing: 3pt;
 
     &::before {
         border-color: hsl(199, 92%, 74%);
@@ -62,6 +69,11 @@
     border: 1px solid hsl(199, 92%, 74%);
     box-shadow: 0 0 17px -10px hsl(199, 92%, 74%),
         inset 0 0 17px -10px hsl(199, 92%, 74%);
+    font-family: 'Oxanium';
+    text-transform: uppercase;
+    font-size: 10pt;
+    letter-spacing: 2pt;
+
 
     .uk-card-header {
         border-bottom: 1px solid hsl(199, 92%, 74%);

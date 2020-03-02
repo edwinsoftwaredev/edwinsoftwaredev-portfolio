@@ -18,7 +18,9 @@ dl dt {
 .uk-heading-small  {
     color: hsl(200, 87%, 94%) !important;
     font-weight: 800;
-    font-family: 'Fira Code';
+    font-family: 'Oxanium';
+    text-transform: uppercase;
+    letter-spacing: 3pt;
 
     &::before {
         border-color: hsl(199, 92%, 74%);
@@ -27,12 +29,20 @@ dl dt {
 .uk-card-title {
     color: hsl(200, 87%, 94%) !important;
     font-weight: 600;
+    font-family: 'Oxanium';
+    text-transform: uppercase;
+    letter-spacing: 2pt;
+    font-size: 14pt;
 }
 
 .uk-card {
     border: 1px solid hsl(199, 92%, 74%);
     box-shadow: 0 0 17px -10px hsl(199, 92%, 74%),
         inset 0 0 17px -10px hsl(199, 92%, 74%);
+    font-family: 'Oxanium';
+    text-transform: uppercase;
+    font-size: 10pt;
+    letter-spacing: 1pt;
 
     .uk-card-header {
         border-bottom: 1px solid hsl(199, 92%, 74%);
@@ -67,5 +77,16 @@ dl dt {
 }
 
 .tools {
-    font-family: 'Fira Code' !important;
+    font-family: 'Oxanium' !important;
+    padding-top: 2px;
+    transform: translateY(-2px);
+}
+
+.profile-image {
+    background-color: hsla(199, 92%, 74%, 0.404);
+    background-blend-mode: multiply;
+    background-image: url(/assets/IMG-20130714-00292.jpg);
+    background-position: center;
+    background-size: cover;
+    min-height: 400px;
 }

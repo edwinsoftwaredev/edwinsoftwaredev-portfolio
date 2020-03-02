@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oxanium&display=swap');
+
 
 .lines {
     perspective: 100vw;
@@ -233,13 +235,21 @@
 .title {
 
     color: hsl(200, 87%, 94%) !important;
-    font-size: 36pt !important;
+    font-size: 28pt !important;
+    font-family: 'Oxanium';
+    text-transform: uppercase;
+    letter-spacing: 3pt;
+    font-weight: 900;
 
     ~ p {
         margin-left: 3px;
         margin-top: 15px !important;
         font-size: 18pt;
         color: #b6ffff !important;
+        font-family: 'Oxanium';
+        text-transform: uppercase;
+        font-weight: lighter !important;
+        letter-spacing: 2pt;
     }
 }
 
@@ -269,9 +279,10 @@
 }
 
 .menu ul li button {
-    font-family: 'Fira Code', monospace;
-    font-size: 16pt;
-    text-transform: capitalize;
+    font-family: 'Oxanium';
+    font-size: 14pt;
+    text-transform: uppercase;
+    letter-spacing: 2pt;
 }
 
 .menu ul li button:hover {
@@ -442,7 +453,7 @@
     opacity: 0;
     transform: translateX(2vw) translateY(3%);
     margin: auto 0 !important;
-    width: 28vw;
+    width: 29vw;
     float: left;
     pointer-events: all;
     transition: ease-out 150ms;

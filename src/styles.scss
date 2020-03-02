@@ -12,3 +12,12 @@ body {
 .uk-card-default {
     background-color: transparent;
 }
+
+::-webkit-scrollbar {
+    background-color: hsla(195, 13%, 52%, 0.199);
+    width: 10px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: hsla(199, 92%, 74%, 0.76);
+}
