@@ -79,9 +79,43 @@
     }   
 }
 
+.corner-borders {
+    height: 10px;
+    width: 10px;
+    display: inline-block;
+
+    &.uk-position-top-left {
+        top: -2px !important;
+        left: -2px !important;
+        border-top: 1px solid hsl(200, 87%, 94%);
+        border-left: 1px solid hsl(200, 87%, 94%);
+    }
+
+    &.uk-position-top-right {
+        top: -2px !important;
+        right: -2px !important;
+        border-top: 1px solid hsl(200, 87%, 94%);
+        border-right: 1px solid hsl(200, 87%, 94%);
+    }
+
+    &.uk-position-bottom-right {
+        bottom: -2px !important;
+        right: -2px !important;
+        border-bottom: 1px solid hsl(200, 87%, 94%);
+        border-right: 1px solid hsl(200, 87%, 94%);
+    }
+
+    &.uk-position-bottom-left {
+        bottom: -2px !important;
+        left: -2px !important;
+        border-bottom: 1px solid hsl(200, 87%, 94%);
+        border-left: 1px solid hsl(200, 87%, 94%);
+    }
+}
+
 .corner-dot {
-    height: 5px;
-    width: 5px;
+    height: 3px;
+    width: 3px;
     background-color: hsl(200, 87%, 94%);
     border-radius: 0%;
     display: inline-block;
@@ -115,6 +149,7 @@
 
 .all-project-header {
     font-size: 28pt;
+    font-weight: 100 !important;
 }
 
 .uk-card {
@@ -147,20 +182,19 @@
 }
 
 .uk-icon-button {
-    background-color: hsla(194, 13%, 52%, 0.4) !important;
-    border-radius: 0 !important;
-    border: 1px solid hsl(200, 87%, 84%);
-    box-shadow: 0 0 17px -10px hsl(200, 87%, 84%);
-
-    &:hover {
-        border: 1px solid hsl(200, 87%, 94%);
-    }
-}
-
-.uk-icon-button {
+    background-color: hsl(199, 92%, 74%, 0.09) !important;
     color: hsl(200, 87%, 94%, 0.7) !important;
-    
+    border-radius: 0 !important;
+    // border: 1px solid hsl(200, 87%, 84%);
+    // box-shadow: 0 0 17px -10px hsl(200, 87%, 84%);
+    position: relative;
+
     &:hover {
         color:  hsl(200, 87%, 94%, 0.8) !important;
+    }
+
+    &:focus {
+        background-color: hsl(199, 92%, 74%, 0.3) !important;
+        border: 1px solid hsl(199, 92%, 74%, 0.4);
     }
 }
