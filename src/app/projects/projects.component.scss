@@ -9,6 +9,19 @@
         color: black;
     }
 }
+.all-projects-card-slider {
+
+    .uk-card {
+        border: none;
+        box-shadow: none;
+        background-color: hsla(199, 92%, 74%, 0.07);
+    }
+
+    .uk-card-title {
+        font-size: 10pt;
+        margin-top: 0;
+    }
+}
 
 .ligthbox-button {
     color: hsl(200, 87%, 94%) !important;
@@ -59,10 +72,49 @@
     font-family: 'Oxanium';
     text-transform: uppercase;
     letter-spacing: 3pt;
+    font-size: 30pt;
 
     &::before {
         border-color: hsl(199, 92%, 74%);
     }   
+}
+
+.corner-dot {
+    height: 5px;
+    width: 5px;
+    background-color: hsl(200, 87%, 94%);
+    border-radius: 0%;
+    display: inline-block;
+
+    &.uk-position-top-left {
+        top: -2px !important;
+        left: -2px !important
+    }
+
+    &.uk-position-top-right {
+        top: -2px !important;
+        right: -2px !important;
+    }
+
+    &.uk-position-bottom-right {
+        bottom: -2px !important;
+        right: -2px !important;
+    }
+
+    &.uk-position-bottom-left {
+        bottom: -2px !important;
+        left: -2px !important;
+    }
+}
+
+.all-projects-container {
+    border: 1px solid hsl(199, 92%, 74%);
+    box-shadow: 0 0 17px -10px hsl(199, 92%, 74%),
+        inset 0 0 17px -10px hsl(199, 92%, 74%);
+}
+
+.all-project-header {
+    font-size: 28pt;
 }
 
 .uk-card {
