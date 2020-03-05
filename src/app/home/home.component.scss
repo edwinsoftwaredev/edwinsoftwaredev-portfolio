@@ -38,10 +38,17 @@
     box-shadow: 0 0 3px 2px rgb(101, 188, 234) !important;
 }
 
+.picture.is-home ~ .corner-borders {
+    border-color: hsl(200, 87%, 94%, 0.9) !important;
+}
+
 .corner-borders {
     height: 60px;
     width: 60px;
     display: inline-block;
+    transition: 350ms ease;
+    border-color: hsl(200, 87%, 94%, 0.8) !important;
+    border-width: 2px;
 
     &.uk-position-top-left {
         top: -9px !important;
