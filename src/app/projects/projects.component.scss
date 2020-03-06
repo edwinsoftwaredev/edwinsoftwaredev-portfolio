@@ -1,3 +1,13 @@
+.principal-container {
+    @media screen and (max-width: 940px) {
+        height: 90vh;
+        overflow-y: auto;
+        margin: 0 !important;
+        padding: 15px !important;   
+        max-width: 100%;
+    }
+}
+
 .tools {
     font-family: 'Oxanium';
     text-transform: uppercase;
@@ -9,6 +19,16 @@
         color: black;
     }
 }
+
+.arrows {
+    opacity: 0.2;
+    
+    &::hover {
+        opacity: 1 !important;
+        filter: brightness(2) !important;
+    }
+}
+
 .all-projects-card-slider {
 
     .uk-card {

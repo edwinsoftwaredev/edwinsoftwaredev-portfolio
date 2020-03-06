@@ -1,3 +1,13 @@
+.principal-container {
+    @media screen and (max-width: 940px) {
+        height: 90vh;
+        overflow-y: auto;
+        margin: 0 !important;
+        padding: 15px !important;   
+        max-width: 100%;
+    }
+}
+
 .uk-heading-small  {
     color: hsl(200, 87%, 94%) !important;
     font-weight: 800;
@@ -12,15 +22,19 @@
 }
 
 .uk-subheader {
-    color: hsl(200, 87%, 94%) !important;
-    font-weight: 800;
-    font-family: 'Oxanium';
-    text-transform: uppercase;
-    letter-spacing: 3pt;
-    font-size: 15pt;
     margin-top: 0px;
-    background-color: hsla(194, 13%, 52%, 0.7) !important;
     border-radius: 0 !important;
+    span {
+        color: hsl(200, 87%, 94%) !important;
+        font-weight: 800;
+        font-family: 'Oxanium';
+        text-transform: uppercase;
+        letter-spacing: 3pt;
+        font-size: 15pt;
+        background-color: hsla(194, 13%, 52%, 0.7) !important;
+        word-wrap: break-word;
+        white-space: normal;
+    }
 }
 
 .grid-container {

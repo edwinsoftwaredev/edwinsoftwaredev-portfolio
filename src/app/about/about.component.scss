@@ -1,3 +1,13 @@
+.principal-container {
+    @media screen and (max-width: 940px) {
+        height: 90vh;
+        overflow-y: auto;
+        margin: 0 !important;
+        padding: 15px !important;   
+        max-width: 100%;
+    }
+}
+
 .pic-container {
     float: left;
     width: fit-content;
@@ -81,6 +91,10 @@ dl dt {
     font-family: 'Oxanium' !important;
     padding-top: 2px;
     transform: translateY(-2px);
+
+    @media screen and (max-width: 960px) {
+        margin: 20px 0 0 30px !important;
+    }
 }
 
 .profile-image {

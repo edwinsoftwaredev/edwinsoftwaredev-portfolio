@@ -1,9 +1,10 @@
 // @import url('https://fonts.googleapis.com/css?family=Fira+Code&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Oxanium&display=swap');
 
-
 .lines {
-    perspective: 100vw;
+    @media screen and (max-width: 940px) {
+        transform: scale(2.3) translateY(20vh);
+    }
 }
 
 .lines.vertical-line .line {
@@ -123,6 +124,11 @@
         animation: run-horizontal 50s 0s infinite;
         animation-fill-mode: forwards;
         animation-timing-function: linear;
+
+
+        @media screen and (max-width: 940px) {
+            animation-duration: 15s;
+        }
     }
 
     &:nth-child(1) {
@@ -265,6 +271,51 @@
     animation-fill-mode: forwards;
     float: left;
     background-color: rgba(0, 0, 0, 0.6);
+
+    @media screen and (max-width: 940px) {
+        position: absolute;
+        animation: none !important;
+        bottom: 0 !important;
+        min-width: 100%;
+        transition: none !important;
+        transform: none;
+        margin: auto;
+        opacity: 1 !important;
+        height: 10vh !important;
+        display: flex;
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-auto-flow: row;
+            column-gap: 1vw;
+            list-style-type: none;
+            padding: 0 !important;
+            width: 100vw;
+        }
+
+        li {
+            display: flex;
+            margin-top: 0 !important;
+        }
+
+        button {
+            display: none;
+        }
+
+        a {
+            margin: auto;
+
+            &.link-selected span {
+                color: hsl(199, 82%, 54%) !important;
+            }
+        }
+
+        span {
+            margin: auto !important;
+            line-height: normal !important;
+        }
+    }
 }
 
 .menu ul {
@@ -317,6 +368,15 @@
     transition-delay: 400ms;
     overflow: hidden;
     display: flex;
+
+
+    @media screen and (max-width: 940px) {
+        width: 100vw;
+        display: inline-block;
+        transition: none !important;
+        transform: translateX(0vw) !important;
+        animation: none !important;
+    }
 }
 
 .left-container.menu-shown:not(.menu) {
@@ -353,9 +413,9 @@
     }
 
     .option-description-home {
-        transform: translateX(2vw) translateY(0%) !important;
+        transform: translateX(2vw) translateY(0%);
         opacity: 1;
-        pointer-events: all !important;
+        pointer-events: all;
     }
 
     .square-home {
@@ -376,6 +436,10 @@
     transition: none !important;
     pointer-events: none !important;
     animation: init-ani-left-container 400ms cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+
+    @media screen and (max-width: 940px) {
+        animation: none !important;
+    }
 }
 
 @keyframes init-ani-left-container {
@@ -412,6 +476,23 @@
     animation-delay: 500ms !important;
     transition: none !important;
     pointer-events: none !important;
+
+    @media screen and (max-width: 940px) {
+        animation: init-des-responsive 300ms ease-in both !important;
+        animation-delay: 300ms !important;
+    }
+}
+
+@keyframes init-des-responsive {
+    from {
+        opacity: 0;
+        transform: translateY(3%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
 }
 
 @keyframes init-desc {
@@ -427,26 +508,12 @@
 }
 
 .square-home {
-    transition-duration: 500ms !important;
+    transition-duration: 400ms !important;
 }
 
 .square-wait-container-home {
     opacity: 0 !important;
     transition: none !important;
-}
-
-///////////////////////////////////////////////////////////////////////////////////
-
-@keyframes menu-in {
-    100% {
-        position: relative;
-    }
-}
-
-@keyframes menu-out {
-    100% {
-        position: relative;
-    }
 }
 
 .option-description {
@@ -458,6 +525,11 @@
     pointer-events: all;
     transition: ease-out 150ms;
     transition-delay: 100ms;
+
+    @media screen and (max-width: 940px) {
+        width: 100%;
+        padding: 25px;
+    }
 }
 
 .left-container.animation-stop.menu-shown .option-description {
@@ -485,6 +557,10 @@
     height: 100%;
     width: 100%;
     display: flex;
+
+    @media screen and (max-width: 640px) {
+        transform: scale(2) translateX(-1vw);
+    }
 }
 
 .square {
@@ -615,6 +691,10 @@
     left: 4vw;
     // pointer-events: none;
     transition: ease-out 200ms;
+
+    @media screen and (max-width: 940px) {
+        display: none;
+    }
 }
 
 .left-container:not(.menu-shown) ~ .square-wait-container {
@@ -695,26 +775,48 @@
     position: fixed;
     height: 100%;
     width: 80vw;
+
+    @media screen and (max-width: 940px) {
+        width: 100%;
+        transform: none !important;
+        height: 90vh !important;
+    }
     // transform-origin: top left !important;
 }
 
 .right-container div {
-    transition: none !important;
     height: 100% !important;
+
+    @media screen and (min-width: 941px) {
+        transition: none !important;
+    }
 }
 
 .right-container-home {
     transform: translateX(60vw) !important;
     transition: none;
+
+    @media screen and (max-width: 940px) {
+        transform: none !important;
+        pointer-events: none;
+    }
 }
 
 .right-container:not(.right-container-home).right-animation-off {
     transform: translateX(20vw);
+
+    @media screen and (max-width: 940px) {
+        transform: none !important;
+    }    
 }
 
 .right-container-in {
     animation: right-container-in-ani 180ms ease-in both;
     animation-delay: 400ms;
+
+    @media screen and (max-width: 940px) {
+        animation: none !important;
+    }
 }
 
 @keyframes right-container-in-ani {
@@ -730,6 +832,10 @@
 .right-container-out {
     animation: right-container-out-ani 300ms ease both;
     animation-delay: 150ms;
+
+    @media screen and (max-width: 940px) {
+        animation: none !important;
+    }
 }
 
 .right-animation-off {
@@ -760,7 +866,6 @@
     transition: 300ms ease-in;
     z-index: 1;
     pointer-events: none;
-    box-shadow: 0 0 1px 0px #1b1b1b inset, 0 0 1px 0px rgba(34,34,34,.8);
 }
 
 // good chunk of scss code
@@ -799,8 +904,10 @@
         opacity: 0;
 
         ~ .background {
-            filter: blur(0px) !important;
-            transition: 500ms ease-in !important;
+            @media screen and (min-width: 941px) {
+                filter: blur(0px) !important;
+                transition: 500ms ease-in !important;   
+            }
         }
     }
 
@@ -819,6 +926,13 @@
 .background {
     height: auto !important;
     overflow-y: auto;
+    filter: blur(0px);
+    transition: 200ms ease-out !important;
+}
+
+.background.background-blured {
+    filter: blur(10px) !important;
+    transition: 200ms ease-in !important;
 }
 
 .left-container.menu-shown ~ .square-wait-container {

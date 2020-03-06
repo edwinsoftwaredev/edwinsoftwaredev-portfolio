@@ -1,5 +1,5 @@
 import { routeComponentsAnimation } from './routing-animation';
-import { Router, Event, NavigationEnd, RouterOutlet } from '@angular/router';
+import { Router, Event, NavigationEnd, RouterOutlet, NavigationStart } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   isStarting = true;
   isMenuShown = true;
   animationOff = true;
+  backgroundBlured = false;
 
   constructor(private router: Router) {
   }
@@ -31,6 +32,14 @@ export class AppComponent implements OnInit {
           this.isHome = false;
           this.isMenuShown = false;
         }
+      }
+
+      if (event instanceof NavigationStart) {
+        this.backgroundBlured = true;
+
+        setTimeout(() => {
+          this.backgroundBlured = false;
+        }, 300);
       }
     });
 
