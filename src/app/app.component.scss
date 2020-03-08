@@ -601,7 +601,7 @@
     }
 }
 
-.left-container.animation-stop.menu-shown ~ .menu-desc-container .option-description {
+.left-container.animation-stop.menu-shown .option-description {
     transform: translateY(0%);
     opacity: 1;
     transition: ease-in 300ms;
