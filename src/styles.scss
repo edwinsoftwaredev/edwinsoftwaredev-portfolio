@@ -3,6 +3,25 @@
 
 body {
     background-color: #1b1b1b;
+    position: absolute;
+    overflow: visible;
+    height: 100vh;
+    width: 100vw;
+
+    @media screen and (min-width: 941px) {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;  
+    }
+}
+
+app-about, app-projects, app-skills {
+    @media screen and (max-width: 940px) {
+        height: auto;
+        display: block;
+    }
 }
 
 .uk-card-secondary {
@@ -14,8 +33,9 @@ body {
 }
 
 ::-webkit-scrollbar {
-    background-color: hsla(195, 13%, 52%, 0.199);
-    width: 3px !important;
+    background-color: hsla(195, 13%, 52%, 0.199) !important;
+    width: 5px !important;
+    display: none !important;
 
     @media screen and (max-width: 640px) {
         background-color: transparent;
@@ -23,5 +43,5 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: hsla(199, 92%, 74%, 0.4);
+    background-color: hsla(199, 92%, 74%, 0.4) !important;
 }

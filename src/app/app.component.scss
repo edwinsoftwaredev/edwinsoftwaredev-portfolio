@@ -216,8 +216,28 @@
 }
 
 .principal-container {
-    height: 100vh;
+    position: absolute;
     display: flex;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+
+    @media screen and (max-width: 940px) {
+        margin-bottom: 10vh;
+        display: block !important;
+        height: auto;
+        position: relative;
+        background-color: #1b1b1b;
+
+        &.principal-container-home {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin-bottom: 0;
+        }
+    }
 }
 
 @keyframes background-animated {
@@ -235,7 +255,8 @@
     position: absolute;
     margin: auto !important;
     display: flex;
-    height: 100%;
+    top: 0;
+    bottom: 0;
 }
 
 .title {
@@ -263,7 +284,7 @@
     z-index: 1;
     margin: auto 0 auto 17px;
     min-width: fit-content;
-    max-width: fit-content;
+    max-width: 15vw;
     opacity: 0;
     transform: translateX(0vw);
     transition: ease-out 250ms;
@@ -273,7 +294,8 @@
     background-color: rgba(0, 0, 0, 0.6);
 
     @media screen and (max-width: 940px) {
-        position: absolute;
+        background-color: rgba(0, 0, 0);
+        position: fixed;
         animation: none !important;
         bottom: 0 !important;
         min-width: 100%;
@@ -368,14 +390,39 @@
     transition-delay: 400ms;
     overflow: hidden;
     display: flex;
-
+    position: absolute;
 
     @media screen and (max-width: 940px) {
         width: 100vw;
         display: inline-block;
         transition: none !important;
-        transform: translateX(0vw) !important;
+        transform: translateX(0vw) !important; 
         animation: none !important;
+        position: fixed !important;
+        height: 90vh;
+        bottom: 10vh !important;
+        // position: fixed !important;
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 70vw;
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 60vw;
+    }
+}
+
+.menu-desc-container {
+    display: flex; 
+    width: 100%;
+    height: 100%;
+
+    @media screen and (max-width: 940px) {
+        width: 100vw;
+        position: absolute;
+        height: 90vh;
+        top: 0;
     }
 }
 
@@ -385,7 +432,7 @@
     transition-delay: 150ms;
 }
 
-.left-container.animation-stop.menu-shown .menu {
+.left-container.animation-stop.menu-shown ~ .menu-desc-container .menu {
     opacity: 1;
     transition: ease-in 180ms;
     transition-delay: 300ms;
@@ -407,13 +454,13 @@
     animation: none !important;
 
     // as the parent class is added after some time we need to set this after the initial animation 
-    .menu-home {
-        opacity: 1;
+    &.menu-home {
+        opacity: 1 !important;
         pointer-events: all !important;
     }
 
     .option-description-home {
-        transform: translateX(2vw) translateY(0%);
+        transform: translateY(0%);
         opacity: 1;
         pointer-events: all;
     }
@@ -498,12 +545,12 @@
 @keyframes init-desc {
     from {
         opacity: 0;
-        transform: translateX(2vw) translateY(3%);
+        transform: translateY(3%);
     }
 
     to {
         opacity: 1;
-        transform: translateX(2vw) translateY(0%);
+        transform: translateY(0%);
     }
 }
 
@@ -517,23 +564,45 @@
 }
 
 .option-description {
+    position: relative;
     opacity: 0;
-    transform: translateX(2vw) translateY(3%);
-    margin: auto 0 !important;
-    width: 29vw;
+    transform: translateY(3%);
+    margin: auto 0 auto 20vw !important;
+    max-width: 30vw;
     float: left;
     pointer-events: all;
     transition: ease-out 150ms;
     transition-delay: 100ms;
 
     @media screen and (max-width: 940px) {
-        width: 100%;
-        padding: 25px;
+        max-width: 100vw;
+        display: flex;
+        height: 100%;
+        margin: auto 5vw !important;
+
+        & > div {
+            margin: auto;
+        }
+
+        &:not(.option-description-home) {
+            display: none;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        max-width: 70vw;
+        padding: 20px;
+        margin: auto 0 auto 25vw !important;
+    }
+
+    @media screen and (min-width: 1200px) {
+        max-width: 30vw;
+        margin: auto 0 auto 20vw !important;
     }
 }
 
-.left-container.animation-stop.menu-shown .option-description {
-    transform: translateX(2vw) translateY(0%);
+.left-container.animation-stop.menu-shown ~ .menu-desc-container .option-description {
+    transform: translateY(0%);
     opacity: 1;
     transition: ease-in 300ms;
     transition-delay: 500ms;
@@ -558,8 +627,14 @@
     width: 100%;
     display: flex;
 
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 940px) {
         transform: scale(2) translateX(-1vw);
+        position: absolute;
+        margin: auto;
+
+        & div:not(.square-home) {
+            display: none;
+        }
     }
 }
 
@@ -779,7 +854,12 @@
     @media screen and (max-width: 940px) {
         width: 100%;
         transform: none !important;
-        height: 90vh !important;
+        position: relative;
+        height: auto !important;
+
+        &.right-container-home {
+            display: none;
+        }
     }
     // transform-origin: top left !important;
 }
@@ -928,6 +1008,11 @@
     overflow-y: auto;
     filter: blur(0px);
     transition: 200ms ease-out !important;
+
+    @media screen and (max-width: 940px) {
+        width: 100%;
+        overflow-y: hidden;
+    }
 }
 
 .background.background-blured {

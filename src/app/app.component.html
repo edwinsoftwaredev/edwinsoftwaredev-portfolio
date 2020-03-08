@@ -1,5 +1,5 @@
 <div class="uk-width-1-1 principal-container" [ngClass]="{'principal-container-home': isHome}">
-
+ 
   <div class="lines horizontal-line">
     <div class="line"></div>
     <div class="line"></div>
@@ -22,18 +22,9 @@
     <div class="line"></div>
     <div class="line"></div>
   </div>
-
+ 
   <div id="left-container" [ngClass]="{'animation-stop':!isStarting, 'left-container-home': isHome, 'menu-shown': isMenuShown}" class="uk-width-1-2 uk-height-1-1 left-container">
     <div class="first-left-container">
-      <div [ngClass]="{'animation-stop':!isStarting, 'menu-home':isHome}" class="uk-animation-toggle menu">
-        <ul class="uk-list uk-padding">
-          <li><a routerLink="/" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['link-selected']"><span uk-icon="icon: home; ratio: 1.3"></span></a><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/" class="uk-button uk-button-text">Home</button></li>
-          <li><a routerLink="/about" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['link-selected']"><span uk-icon="icon: info; ratio: 1.3"></span></a><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/about" class="uk-button uk-button-text" (click)="hideMenu()">About</button></li>
-          <li><a routerLink="/projects" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['link-selected']"><span uk-icon="icon: album; ratio: 1.3"></span></a><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/projects" class="uk-button uk-button-text" (click)="hideMenu()">Projects</button></li>
-          <li><a routerLink="/skills" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['link-selected']"><span uk-icon="icon: cog; ratio: 1.3"></span></a><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/skills" class="uk-button uk-button-text" (click)="hideMenu()">Skills</button></li>
-          <li><a routerLink="/contact" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['link-selected']"><span uk-icon="icon: mail; ratio: 1.3"></span></a><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/contact" class="uk-button uk-button-text" (click)="hideMenu()">Contact</button></li>
-        </ul>
-      </div>
       <div [ngClass]="{'animation-stop': !isStarting, 'option-description-home' : isHome}" class="option-description">
         <div>
           <h1 class="title">Hi, my name is <br> Edwin Martínez.</h1>
@@ -43,7 +34,6 @@
     </div>
     <div class="square-container">
       <div [ngClass]="{'square-home' : isHome}" class="square">
-
       </div>
     </div>
   </div>
@@ -66,6 +56,18 @@
       <div [@routeAnimations]="prepareRoute(outlet)" class="background" [ngClass]="{'background-blured': backgroundBlured}">
         <router-outlet #outlet="outlet"></router-outlet>
       </div>
+    </div>
+  </div>
+
+  <div class="menu-desc-container">
+    <div [ngClass]="{'animation-stop':!isStarting, 'menu-home':isHome}" class="uk-animation-toggle menu">
+      <ul class="uk-list uk-padding">
+        <li><a routerLink="/" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['link-selected']"><span uk-icon="icon: home; ratio: 1.3"></span></a><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/" class="uk-button uk-button-text">Home</button></li>
+        <li><a routerLink="/about" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['link-selected']"><span uk-icon="icon: info; ratio: 1.3"></span></a><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/about" class="uk-button uk-button-text" (click)="hideMenu()">About</button></li>
+        <li><a routerLink="/projects" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['link-selected']"><span uk-icon="icon: album; ratio: 1.3"></span></a><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/projects" class="uk-button uk-button-text" (click)="hideMenu()">Projects</button></li>
+        <li><a routerLink="/skills" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['link-selected']"><span uk-icon="icon: cog; ratio: 1.3"></span></a><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/skills" class="uk-button uk-button-text" (click)="hideMenu()">Skills</button></li>
+        <li><a routerLink="/contact" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['link-selected']"><span uk-icon="icon: mail; ratio: 1.3"></span></a><button [routerLinkActive]="['route-selected-button']" [routerLinkActiveOptions]="{exact: true}" routerLink="/contact" class="uk-button uk-button-text" (click)="hideMenu()">Contact</button></li>
+      </ul>
     </div>
   </div>
 </div>
