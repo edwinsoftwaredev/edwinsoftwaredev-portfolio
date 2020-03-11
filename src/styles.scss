@@ -35,7 +35,6 @@ app-about, app-projects, app-skills {
 ::-webkit-scrollbar {
     background-color: hsla(195, 13%, 52%, 0.199) !important;
     width: 5px !important;
-    display: none !important;
 
     @media screen and (max-width: 640px) {
         background-color: transparent;

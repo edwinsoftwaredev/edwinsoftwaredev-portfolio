@@ -293,6 +293,10 @@
     float: left;
     background-color: rgba(0, 0, 0, 0.6);
 
+    &:not(.menu-shown) {
+        pointer-events: none;
+    }
+
     @media screen and (max-width: 940px) {
         background-color: rgba(0, 0, 0);
         position: fixed;
@@ -305,6 +309,7 @@
         opacity: 1 !important;
         height: 10vh !important;
         display: flex;
+        pointer-events: all !important;
 
         ul {
             display: grid;

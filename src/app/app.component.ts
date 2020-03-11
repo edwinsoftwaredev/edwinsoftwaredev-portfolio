@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
           this.isMenuShown = true;
         } else {
           document.getElementsByClassName('background')[0].scrollTop = 0;
+          document.scrollingElement.scrollTop = 0;
 
           this.isHome = false;
           this.isMenuShown = false;
