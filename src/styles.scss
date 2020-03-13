@@ -20,6 +20,7 @@ body {
 app-about, app-projects, app-skills, app-contact {
     @media screen and (max-width: 940px) {
         height: auto;
+        min-height: 100vh;
         display: block;
     }
 }

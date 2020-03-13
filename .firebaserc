@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "edwinsoftwareengineer"
+  },
+  "targets": {
+    "edwinsoftwareengineer": {
+      "hosting": {
+        "edwinsoftwaredev-portafolio": [
+          "edwinsoftwareengineer"
+        ]
+      }
+    }
+  }
+}
