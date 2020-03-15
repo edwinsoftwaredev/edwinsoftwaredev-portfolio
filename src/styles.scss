@@ -45,3 +45,7 @@ app-about, app-projects, app-skills, app-contact {
 ::-webkit-scrollbar-thumb {
     background-color: hsla(199, 92%, 74%, 0.4) !important;
 }
+
+.uk-heading-bullet::before {
+    border-left: 7px solid #e5e5e5;
+}
