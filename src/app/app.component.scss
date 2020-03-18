@@ -349,6 +349,12 @@
     margin: 0 !important;
 }
 
+.menu ul li {
+    @media screen and (min-width: 940px) {
+        min-width: 160px;
+    }
+}
+
 .menu ul li span {
     vertical-align: baseline;
     line-height: 30pt;
@@ -1010,6 +1016,7 @@
 }
 
 .background {
+    position: relative;
     height: auto !important;
     overflow-y: auto;
     filter: blur(0px);
